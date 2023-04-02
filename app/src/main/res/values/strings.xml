@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Better Wordle</string>
+    <string name="app_version">v alpha</string>
+    <string name="quit">quit</string>
+    <string name="settings">settings</string>
+    <string name="start">Start</string>
+    <string name="better_wordle">Better Wordle</string>
+    <string name="record">record</string>
+    <string name="night_mode">Dark Mode:</string>
+</resources>
