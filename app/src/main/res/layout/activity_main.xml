@@ -35,7 +35,7 @@
                 android:layout_margin="10dp"
                 android:text="@string/start"
                 android:backgroundTint="@color/wordle_grey"
-                android:textSize="30dp"/>
+                android:textSize="30sp"/>
 
 
             <Button
@@ -45,7 +45,7 @@
                 android:layout_margin="10dp"
                 android:text="@string/record"
                 android:backgroundTint="@color/wordle_grey"
-                android:textSize="30dp"/>
+                android:textSize="30sp"/>
 
 
             <Button
@@ -55,7 +55,7 @@
                 android:layout_margin="10dp"
                 android:text="@string/settings"
                 android:backgroundTint="@color/wordle_grey"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 />
 
 
@@ -67,7 +67,7 @@
                 android:layout_margin="10dp"
                 android:text="@string/quit"
                 android:backgroundTint="@color/wordle_grey"
-                android:textSize="30dp"/>
+                android:textSize="30sp"/>
 
 
 
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:text="@string/app_version"
             android:textAlignment="viewEnd"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textColor="@color/words"
             />
 

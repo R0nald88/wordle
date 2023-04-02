@@ -7,4 +7,6 @@
     <string name="better_wordle">Better Wordle</string>
     <string name="record">record</string>
     <string name="night_mode">Dark Mode:</string>
+    <string name="custom_background">Custom Background:</string>
+    <string name="click_here">Click Here</string>
 </resources>

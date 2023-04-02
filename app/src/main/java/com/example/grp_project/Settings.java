@@ -1,15 +1,15 @@
 package com.example.grp_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.CompoundButton;
-import android.widget.Switch;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 
 public class Settings extends AppCompatActivity {
-    Switch sw_night_mode;
+    SwitchCompat sw_night_mode;
 
     SharedPreferences sharedPreferences;
 

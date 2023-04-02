@@ -9,6 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="42sp"
+            android:text="@string/settings"
+            android:textAlignment="center"
+            android:textColor="@color/words"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -17,16 +24,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/night_mode"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 android:textColor="@color/words"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/sw_night_mode"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                  />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/custom_background"
+                android:textSize="30sp"
+                android:textColor="@color/words"/>
 
+            <Button
+                android:id="@+id/btn_background"
+                android:layout_marginStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/wordle_grey"
+                android:text="@string/click_here"/>
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
