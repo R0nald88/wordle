@@ -2,6 +2,7 @@ package com.example.grp_project;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -9,12 +10,14 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
@@ -24,7 +27,7 @@ import java.net.URI;
 
 public class Settings extends AppCompatActivity {
     SwitchCompat sw_night_mode;
-    Button btn_background;
+    Button btn_background,btn_reset;
     LinearLayout LL4;
     SharedPreferences sharedPreferences;
 
@@ -35,13 +38,21 @@ public class Settings extends AppCompatActivity {
         sharedPreferences=getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
         getSupportActionBar().hide();
         InitiateNightModeSwitch();
-        InitiateCustomBackgroundButton();
+        InitiateButtons();
         LL4 =findViewById(R.id.LL4);
         set_background();
     }
-
-
-    private void InitiateCustomBackgroundButton() {
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            Intent i = new Intent(Settings.this,MainActivity.class);
+            startActivity(i);
+            return true;
+        }else {
+            return super.onKeyDown(keyCode,event);
+        }
+    }
+    private void InitiateButtons() {
         btn_background=findViewById(R.id.btn_background);
         btn_background.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +65,40 @@ public class Settings extends AppCompatActivity {
             }
 
 
+        });
+
+        btn_reset=findViewById(R.id.btn_reset);
+        btn_reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Settings.this);
+                builder.setMessage("Do you want to reset?");
+                builder.setTitle("Reset Now?");
+                builder.setCancelable(false);
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.remove("nightmodeKey");
+                        editor.clear();
+                        editor.apply();
+                        editor.remove("CustomUriKey");
+                        editor.clear();
+                        editor.apply();
+                        sw_night_mode.setChecked(false);
+                        Intent intent = new Intent(Settings.this,Settings.class);
+                        startActivity(intent);
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
         });
     }
 
@@ -80,20 +125,19 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b){
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                     sw_night_mode.setChecked(true);
                     SharedPreferences.Editor editor= sharedPreferences.edit();
                     editor.putBoolean("nightmodeKey",true);
                     editor.commit();
-                    set_background();
+
                 }else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     sw_night_mode.setChecked(false);
                     SharedPreferences.Editor editor= sharedPreferences.edit();
                     editor.putBoolean("nightmodeKey",false);
                     editor.commit();
-                    set_background();
+
                 }
+                set_background();
             }
         });
     }
@@ -117,8 +161,16 @@ public class Settings extends AppCompatActivity {
     public void set_background() {
         if (sharedPreferences.contains("CustomUriKey")) {
             LL4.setBackground(Drawable.createFromPath(sharedPreferences.getString("CustomUriKey", "")));
-
+            LL4.setAlpha(0.7F);
         }
-        LL4.setAlpha(0.7F);
+        if (sharedPreferences.contains("nightmodeKey")){
+            if(sharedPreferences.getBoolean("nightmodeKey",false)){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+            }
+        }
+
     }
 }

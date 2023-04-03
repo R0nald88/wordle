@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void InitiateButtons() {
         btn_start=findViewById(R.id.btn_start);
         btn_start.setOnClickListener(this);
-        btn_start.animate().rotationXBy(-360).setStartDelay(500).setDuration(500).withStartAction(new Runnable() {
+        btn_start.animate().rotationXBy(-360).setStartDelay(1000).setDuration(500).withStartAction(new Runnable() {
             @Override
             public void run() {
                 ViewCompat.setBackgroundTintList(btn_start, ContextCompat.getColorStateList(MainActivity.this, R.color.wordle_green));
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btn_record=findViewById(R.id.btn_record);
         btn_record.setOnClickListener(this);
-        btn_record.animate().rotationXBy(-360).setStartDelay(1000).setDuration(500).withStartAction(new Runnable() {
+        btn_record.animate().rotationXBy(-360).setStartDelay(1500).setDuration(500).withStartAction(new Runnable() {
             @Override
             public void run() {
                 ViewCompat.setBackgroundTintList(btn_record, ContextCompat.getColorStateList(MainActivity.this , R.color.wordle_yellow));
@@ -99,11 +99,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btn_settings=findViewById(R.id.btn_settings);
         btn_settings.setOnClickListener(this);
-        btn_settings.animate().rotationXBy(-360).setStartDelay(1500).setDuration(500);
+        btn_settings.animate().rotationXBy(-360).setStartDelay(2000).setDuration(500);
 
         btn_quit=findViewById(R.id.btn_quit);
         btn_quit.setOnClickListener(this);
-        btn_quit.animate().rotationXBy(-360).setStartDelay(2000).setDuration(500);
+        btn_quit.animate().rotationXBy(-360).setStartDelay(2500).setDuration(500);
 
     }
     private void InitiateSharedPreferences() {
