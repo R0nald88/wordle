@@ -9,10 +9,17 @@ import androidx.core.view.ViewCompat;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -21,10 +28,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btn_start,btn_settings,btn_record,btn_quit;
     Intent next_activity;
     SharedPreferences sharedPreferences;
+    Drawable background;
 
     //Key lists
     public static final String sharedPerferenceKey="sharedPerferenceKey";
     public static final String nightmodeKey="nightmodeKey";
+    public static final String customurikey="CustomUriKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +119,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             SharedPreferences.Editor editor= sharedPreferences.edit();
             editor.putBoolean(nightmodeKey,false);
             editor.commit();
+        }
+        if (sharedPreferences.contains(customurikey)){
+            LinearLayout LL1 = findViewById(R.id.LL1);
+            LL1.setBackground(Drawable.createFromPath(sharedPreferences.getString(customurikey,"")));
+            LL1.setAlpha(0.7F);
         }
     }
     @Override
