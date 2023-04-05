@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -25,6 +27,8 @@ import androidx.appcompat.widget.SwitchCompat;
 public class Settings extends AppCompatActivity {
     SwitchCompat sw_night_mode;
     Button btn_background,btn_reset;
+    SeekBar sb_volume;
+    AudioManager audioManager;
     LinearLayout LL4;
     SharedPreferences sharedPreferences;
 
@@ -36,9 +40,23 @@ public class Settings extends AppCompatActivity {
         getSupportActionBar().hide();
         LL4 =findViewById(R.id.LL4);
         set_background();
+        InitiateSeekbars();
         InitiateNightModeSwitch();
         InitiateButtons();
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && data != null) {
+            Uri uri = data.getData();
+            SharedPreferences.Editor editor= sharedPreferences.edit();
+            String path=getRealPathFromURI(getApplicationContext(),uri);
+            editor.putString("CustomUriKey",path);
+            editor.commit();
+            set_background();
+
+        }
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event){
@@ -84,6 +102,8 @@ public class Settings extends AppCompatActivity {
                         editor.clear();
                         editor.apply();
                         sw_night_mode.setChecked(false);
+                        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,5,0);
+                        sb_volume.setProgress(audioManager.getStreamVolume(AudioManager.STREAM_MUSIC));
                         Intent intent = new Intent(Settings.this,Settings.class);
                         startActivity(intent);
                     }
@@ -99,19 +119,29 @@ public class Settings extends AppCompatActivity {
             }
         });
     }
+    private void InitiateSeekbars() {
+        sb_volume=findViewById(R.id.sb_volume);
+        audioManager= (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+        int max= audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int current = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+        sb_volume.setMax(max);
+        sb_volume.setProgress(current);
+        sb_volume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,i,0);
+            }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && data != null) {
-                Uri uri = data.getData();
-                SharedPreferences.Editor editor= sharedPreferences.edit();
-                String path=getRealPathFromURI(getApplicationContext(),uri);
-                editor.putString("CustomUriKey",path);
-                editor.commit();
-                set_background();
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
 
-        }
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
     private void InitiateNightModeSwitch() {
         sw_night_mode=findViewById(R.id.sw_night_mode);
@@ -139,7 +169,6 @@ public class Settings extends AppCompatActivity {
             }
         });
     }
-
     public String getRealPathFromURI(Context context, Uri contentUri) {
         Cursor cursor = getContentResolver().query(contentUri, null, null, null, null);
         cursor.moveToFirst();
@@ -155,7 +184,6 @@ public class Settings extends AppCompatActivity {
 
         return path;
     }
-
     public void set_background() {
         if (sharedPreferences.contains("CustomUriKey")) {
             LL4.setBackground(Drawable.createFromPath(sharedPreferences.getString("CustomUriKey", "")));

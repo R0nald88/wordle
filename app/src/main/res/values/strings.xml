@@ -10,4 +10,6 @@
     <string name="custom_background">Custom Background:</string>
     <string name="click_here">Click Here</string>
     <string name="reset">Reset</string>
+    <string name="volume">Volume:</string>
+    <string name="music_volume">Music Volume:</string>
 </resources>

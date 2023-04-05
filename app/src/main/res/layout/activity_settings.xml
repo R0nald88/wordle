@@ -19,6 +19,21 @@
             android:textAlignment="center"
             android:textColor="@color/words"
             android:textSize="42sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/volume"
+                android:textColor="@color/words"
+                android:textSize="30sp" />
+            <SeekBar
+                android:id="@+id/sb_volume"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
