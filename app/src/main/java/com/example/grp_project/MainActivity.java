@@ -110,12 +110,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sharedPreferences=getSharedPreferences(sharedPerferenceKey,MODE_PRIVATE);
 
         if (sharedPreferences.getBoolean(nightmodeKey,false)){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             SharedPreferences.Editor editor= sharedPreferences.edit();
             editor.putBoolean(nightmodeKey,true);
             editor.commit();
         }else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             SharedPreferences.Editor editor= sharedPreferences.edit();
             editor.putBoolean(nightmodeKey,false);
             editor.commit();
@@ -123,7 +123,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (sharedPreferences.contains(customurikey)){
             LinearLayout LL1 = findViewById(R.id.LL1);
             LL1.setBackground(Drawable.createFromPath(sharedPreferences.getString(customurikey,"")));
-            LL1.setAlpha(0.7F);
         }
     }
     @Override

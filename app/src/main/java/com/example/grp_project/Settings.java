@@ -22,9 +22,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
 
-import java.io.File;
-import java.net.URI;
-
 public class Settings extends AppCompatActivity {
     SwitchCompat sw_night_mode;
     Button btn_background,btn_reset;
@@ -37,10 +34,11 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         sharedPreferences=getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
         getSupportActionBar().hide();
-        InitiateNightModeSwitch();
-        InitiateButtons();
         LL4 =findViewById(R.id.LL4);
         set_background();
+        InitiateNightModeSwitch();
+        InitiateButtons();
+
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event){
@@ -105,13 +103,13 @@ public class Settings extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
+        if (requestCode == 1 && data != null) {
                 Uri uri = data.getData();
                 SharedPreferences.Editor editor= sharedPreferences.edit();
                 String path=getRealPathFromURI(getApplicationContext(),uri);
                 editor.putString("CustomUriKey",path);
                 editor.commit();
-                LL4.setBackground(Drawable.createFromPath(sharedPreferences.getString("CustomUriKey","")));
+                set_background();
 
         }
     }
@@ -161,13 +159,12 @@ public class Settings extends AppCompatActivity {
     public void set_background() {
         if (sharedPreferences.contains("CustomUriKey")) {
             LL4.setBackground(Drawable.createFromPath(sharedPreferences.getString("CustomUriKey", "")));
-            LL4.setAlpha(0.7F);
         }
         if (sharedPreferences.contains("nightmodeKey")){
             if(sharedPreferences.getBoolean("nightmodeKey",false)){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             }else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
             }
         }
