@@ -1,9 +1,9 @@
-package com.rcheung.wordle.Item;
+package com.example.grp_project.Item;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.rcheung.wordle.R;
+import com.example.grp_project.R;
 
 import java.util.Arrays;
 import java.util.List;
