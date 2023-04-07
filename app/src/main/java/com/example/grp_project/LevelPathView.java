@@ -1,4 +1,4 @@
-package com.rcheung.wordle;
+package com.example.grp_project;
 
 import android.content.Context;
 import android.graphics.Canvas;
