@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".LevelActivity">
 
-    <com.rcheung.wordle.LevelPathView
+    <com.example.grp_project.LevelPathView
         android:id="@+id/view_level"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
