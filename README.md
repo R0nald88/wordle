@@ -67,7 +67,7 @@ Class stores finalized Level Info
 > grantReward() : void
  -> Change reward number and store in shared pref
  
-## grp_project/Storage/Item/GameItem interface
+## grp_project/Item/GameItem interface
 Interface to store basic and finalized info of constant game item
 ### Subclass
 > Product interface -> Info and Number of purchaseable game item
@@ -82,3 +82,19 @@ Interface to store basic and finalized info of constant game item
 > getDrawableInt() : int -> Return drawable resources int of item (R.drawable. ...)
  
 > getColorInt() : int -> Return color resources int of item (R.color. ...)
+
+## grp_project/Item/Product interface : GameItem
+Interface to store Info and Number of purchaseable game item
+### Subclass
+> Booster enum -> Booster for game level
+
+> Token enum -> Token/ currency of game. COIN Only.
+
+### Method
+> static Token.read() / Booster.read() -> read and get number of products from shared pref
+
+> getNumber() : int -> Return number of products user hold
+
+> increaseBy(c : Context, a : int) : void -> Increase number by a and immediately store to shared pref
+
+> decreaseBy(c : Context, a : int) : void -> Decrease number by a and immediately store to shared pref
