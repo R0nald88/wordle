@@ -3,6 +3,10 @@ package com.example.grp_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.BlendMode;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -19,13 +23,15 @@ public class LevelActivity extends AppCompatActivity {
 	private ImageView btnShop, btnPlay, btnEndless, btnRecord, btnDaily;
 	private TextView txtCoin;
 
+	private SharedPreferences sharedPreferences;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_level);
 		Booster.read(this);
 		Token.read(this);
-
+		sharedPreferences=getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
 		initView();
 
 		Log.d("letter", Level.getCurrentLevel(LevelActivity.this) + "");
@@ -60,6 +66,10 @@ public class LevelActivity extends AppCompatActivity {
 
 	private void initView() {
 		viewLevel = findViewById(R.id.view_level);
+		if (sharedPreferences.contains("CustomUriKey")){
+			viewLevel.setBackground(Drawable.createFromPath(sharedPreferences.getString("CustomUriKey","")));
+
+		}
 		btnDaily = findViewById(R.id.btn_daily);
 		btnShop = findViewById(R.id.btn_store);
 		btnPlay = findViewById(R.id.btn_play);
