@@ -26,11 +26,12 @@ Class for Storing Game Attempt Record.
 > getLevelInt() : int 
  -> Return integer of level number of current record
  
-> getDate() : String 
+> """getDate() : String""" 
  -> Return String of date of attempts in "dd/mm/yy" forms
  
 > isPassed() : boolean 
  -> Return if current record is passed
  
 ## For Game mode = TIME_MODE/ STEP_MODE/ DAILY_MODE
-> getCorrectInput() : String -> Return the correct words that is randomly generated
+> getCorrectInput() : String 
+ -> Return the correct words that is randomly generated
