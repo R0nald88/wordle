@@ -55,10 +55,30 @@ Class stores finalized Level Info
 > static Level.getLevel(level : int) : Level
  -> Return Level Info at given level number
  
+> static Level.DAILY : int, Level.ENDLESS : int
+ -> Constant integer attribute representing level number of daily and endless mode
+ 
 > getGameMode() : GameMode 
  -> Return GameMode of current level
  
 > getRewards() : Map<Product, Integer>
  -> Return rewards type (key : Product) and corresponding number granted (value : Integer) after level passed
  
-> 
+> grantReward() : void
+ -> Change reward number and store in shared pref
+ 
+## grp_project/Storage/Item/GameItem interface
+Interface to store basic and finalized info of constant game item
+### Subclass
+> Product interface -> Info and Number of purchaseable game item
+
+> GameMode enum -> Constant game mode of various level, including STEP_MODE, TIME_MODE, DAILY_MODE, ENDLESS_MODE
+ 
+### Method
+> getName() : String -> Return name of item
+ 
+> describe() : String -> Return description of item
+ 
+> getDrawableInt() : int -> Return drawable resources int of item (R.drawable. ...)
+ 
+> getColorInt() : int -> Return color resources int of item (R.color. ...)
