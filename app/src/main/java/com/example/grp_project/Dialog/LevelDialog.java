@@ -18,13 +18,13 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rcheung.wordle.BoosterItemAdapter;
-import com.rcheung.wordle.Item.Booster;
-import com.rcheung.wordle.Item.Product;
-import com.rcheung.wordle.LevelActivity;
-import com.rcheung.wordle.R;
-import com.rcheung.wordle.Storage.Level;
-import com.rcheung.wordle.WordleGame;
+import com.example.grp_project.BoosterItemAdapter;
+import com.example.grp_project.Item.Booster;
+import com.example.grp_project.Item.Product;
+import com.example.grp_project.LevelActivity;
+import com.example.grp_project.R;
+import com.example.grp_project.Storage.Level;
+import com.example.grp_project.WordleGame;
 
 import java.util.ArrayList;
 import java.util.List;
