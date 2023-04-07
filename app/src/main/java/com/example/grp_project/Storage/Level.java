@@ -1,14 +1,14 @@
-package com.rcheung.wordle.Storage;
+package com.example.grp_project.Storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 
-import com.rcheung.wordle.Item.Booster;
-import com.rcheung.wordle.Item.GameMode;
-import com.rcheung.wordle.Item.Product;
-import com.rcheung.wordle.Item.Token;
+import com.example.grp_project.Item.Booster;
+import com.example.grp_project.Item.GameMode;
+import com.example.grp_project.Item.Product;
+import com.example.grp_project.Item.Token;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -23,7 +23,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
-import static com.rcheung.wordle.Storage.Record.SHARED_PREF;
+import static com.example.grp_project.Storage.Record.SHARED_PREF;
 
 public class Level {
 	public static final int ENDLESS = -1, DAILY = -2;
