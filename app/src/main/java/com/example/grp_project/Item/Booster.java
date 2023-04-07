@@ -1,11 +1,11 @@
-package com.rcheung.wordle.Item;
+package com.example.grp_project.Item;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.rcheung.wordle.R;
-import com.rcheung.wordle.Storage.Record;
-import com.rcheung.wordle.WordleGame;
+import com.example.grp_project.R;
+import com.example.grp_project.Storage.Record;
+import com.example.grp_project.WordleGame;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
-import static com.rcheung.wordle.Storage.Record.SHARED_PREF;
+import static com.example.grp_project.Storage.Record.SHARED_PREF;
 
 public enum Booster implements Product {
 	ADD_CHANCE() {
