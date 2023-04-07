@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_level"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    style="@style/normalDialog">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/title"
+        android:id="@+id/txt_level"
+        android:text="Level 0"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="@dimen/default_margin"
+        style="@style/icon"
+        android:src="@drawable/ic_continue"
+        android:id="@+id/img_game_mode"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:paddingHorizontal="@dimen/default_margin"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        style="@style/subtitle"
+        android:text="Rewards"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:stretchColumns="*, *"
+        android:layout_marginHorizontal="@dimen/default_margin"
+        android:padding="@dimen/default_margin"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+            <TextView
+                style="@style/content"
+                android:gravity="center_vertical"
+                android:id="@+id/txt_reward_1"/>
+
+            <TextView
+                style="@style/content"
+                android:gravity="center_vertical"
+                android:id="@+id/txt_reward_2" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                style="@style/content"
+                android:gravity="center_vertical"
+                android:id="@+id/txt_reward_3"/>
+
+            <TextView
+                style="@style/content"
+                android:gravity="center_vertical"
+                android:id="@+id/txt_reward_4" />
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:orientation="vertical"
+        android:background="@drawable/bg_word"
+        android:padding="@dimen/default_margin"
+        android:layout_margin="@dimen/default_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/subtitle"
+            android:text="Boosters"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/list_booster"
+            tools:listitem="@layout/item_booster"
+            tools:itemCount="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            style="@style/btn_secondary"
+            android:drawableTop="@drawable/ic_continue"
+            android:text="Play"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:id="@+id/btn_next_level"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            style="@style/btn_secondary"
+            android:text="Exit"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:drawableTop="@drawable/ic_exit"
+            android:id="@+id/btn_exit"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/btn_secondary"
+            android:text="Record"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:drawableTop="@drawable/ic_record"
+            android:id="@+id/btn_record"/>
+
+    </LinearLayout>
+</LinearLayout>

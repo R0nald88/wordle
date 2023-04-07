@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/smallDialog">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/title"
+        android:textColor="@color/white"
+        android:text="Game Paused"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin">
+        <ImageButton
+            style="@style/icon"
+            android:id="@+id/btn_continue"
+            android:tooltipText="Continue"
+            android:src="@drawable/ic_continue"/>
+
+        <ImageButton
+            style="@style/icon"
+            android:layout_marginHorizontal="16dp"
+            android:id="@+id/btn_exit"
+            android:tooltipText="Exit Game"
+            android:src="@drawable/ic_exit"/>
+
+        <ImageButton
+            style="@style/icon"
+            android:id="@+id/btn_restart"
+            android:tooltipText="Restart"
+            android:src="@drawable/ic_restart"/>
+    </LinearLayout>
+</LinearLayout>

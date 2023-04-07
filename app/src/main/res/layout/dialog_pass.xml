@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_result"
+    style="@style/normalDialog"
+    >
+
+    <TextView
+        android:id="@+id/txt_coin"
+        style="@style/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/bg_word"
+        android:backgroundTint="@color/white"
+        android:drawableStart="@drawable/ic_coin"
+        android:gravity="center"
+        android:padding="5dp"
+        android:layout_gravity="end"
+        android:text="\t0"/>
+
+    <TextView
+        android:id="@+id/txt_title"
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin"
+        android:text="You Passed!" />
+
+    <ImageView
+        android:id="@+id/img_result"
+        style="@style/icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="@dimen/default_margin"
+        android:src="@drawable/ic_pass"
+        android:tint="@color/green" />
+
+    <LinearLayout
+        android:id="@+id/layout_transition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/default_margin"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            android:stretchColumns="*, *">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/txt_level"
+                    style="@style/subcontent"
+                    android:drawableStart="@drawable/ic_continue"
+                    android:gravity="center_vertical"
+                    android:text="\tLevel: 1" />
+
+                <TextView
+                    android:id="@+id/txt_correct_word"
+                    style="@style/subcontent"
+                    android:drawableStart="@drawable/ic_correct"
+                    android:gravity="center_vertical"
+                    android:text="\tWord: 1" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/txt_step"
+                    style="@style/subcontent"
+                    android:drawableStart="@drawable/ic_time"
+                    android:gravity="center_vertical"
+                    android:text="\tStep: 1" />
+
+                <TextView
+                    android:id="@+id/txt_date"
+                    style="@style/subcontent"
+                    android:drawableStart="@drawable/ic_date"
+                    android:gravity="center_vertical"
+                    android:text="\tDate: 1" />
+            </TableRow>
+
+        </TableLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_rewards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:background="@drawable/bg_word"
+            android:backgroundTint="@color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/default_margin">
+
+            <TextView
+                style="@style/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rewards" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*, *">
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/txt_reward_1"
+                        style="@style/content"
+                        android:gravity="center_vertical" />
+
+                    <TextView
+                        android:id="@+id/txt_reward_2"
+                        style="@style/content"
+                        android:gravity="center_vertical" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/txt_reward_3"
+                        style="@style/content"
+                        android:gravity="center_vertical" />
+
+                    <TextView
+                        android:id="@+id/txt_reward_4"
+                        style="@style/content"
+                        android:gravity="center_vertical" />
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/btn_next_level"
+                style="@style/btn_secondary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_continue"
+                android:gravity="center"
+                android:text="Next Level"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btn_exit"
+                style="@style/btn_secondary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_exit"
+                android:gravity="center"
+                android:text="Exit"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btn_record"
+                style="@style/btn_secondary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_record"
+                android:gravity="center"
+                android:text="Record"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

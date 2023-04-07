@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="@dimen/default_margin"
+    android:background="@drawable/bg_word"
+    android:layout_margin="5dp"
+    android:backgroundTint="@color/white"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="@dimen/level_bottom_icon"
+        android:layout_height="@dimen/level_bottom_icon"
+        android:src="@drawable/ic_coin"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/img_product"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="@color/green"
+        android:drawableStart="@drawable/ic_coin"
+        android:id="@+id/btn_buy"
+        android:layout_centerVertical="true"
+        android:text="20"
+        style="@style/subtitle"
+        android:gravity="center"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/btn_buy"
+        android:layout_toEndOf="@id/img_product"
+        android:layout_alignParentTop="true"
+        style="@style/subtitle"
+        android:textStyle="bold"
+        android:text="Auto Correct"
+        android:layout_marginHorizontal="@dimen/default_margin"
+        android:id="@+id/txt_product_name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/btn_buy"
+        android:layout_toEndOf="@id/img_product"
+        android:layout_below="@id/txt_product_name"
+        android:layout_marginHorizontal="@dimen/default_margin"
+        style="@style/content"
+        android:text="ffffff\n"
+        android:id="@+id/txt_product_describe"/>
+</RelativeLayout>

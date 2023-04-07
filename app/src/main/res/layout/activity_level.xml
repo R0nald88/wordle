@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LevelActivity">
+
+    <com.example.grp_project.LevelPathView
+        android:id="@+id/view_level"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleX="3"
+        android:scaleY="3"
+        tools:layout_editor_absoluteX="-9dp"
+        tools:layout_editor_absoluteY="-25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_coin"
+        style="@style/content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/bg_word"
+        android:backgroundTint="@color/white"
+        android:id="@+id/txt_coin"
+        android:padding="5dp"
+        android:gravity="center"
+        android:text="\t0"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/bg_word"
+        android:backgroundTint="@color/green"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btn_record"
+            style="@style/icon"
+            android:layout_width="@dimen/level_bottom_icon"
+            android:layout_height="@dimen/level_bottom_icon"
+            android:layout_margin="@dimen/default_margin"
+            android:src="@drawable/ic_record" />
+
+        <ImageView
+            android:id="@+id/btn_daily"
+            style="@style/icon"
+            android:layout_width="@dimen/level_bottom_icon"
+            android:layout_height="@dimen/level_bottom_icon"
+            android:layout_margin="@dimen/default_margin"
+            android:src="@drawable/ic_date" />
+
+        <ImageView
+            android:id="@+id/btn_play"
+            style="@style/icon"
+            android:layout_width="@dimen/level_bottom_icon"
+            android:layout_height="@dimen/level_bottom_icon"
+            android:layout_margin="@dimen/default_margin"
+            android:src="@drawable/ic_continue" />
+
+        <ImageView
+            android:id="@+id/btn_endless"
+            style="@style/icon"
+            android:layout_width="@dimen/level_bottom_icon"
+            android:layout_height="@dimen/level_bottom_icon"
+            android:layout_margin="@dimen/default_margin"
+            android:src="@drawable/ic_endless" />
+
+        <ImageView
+            android:id="@+id/btn_store"
+            style="@style/icon"
+            android:layout_width="@dimen/level_bottom_icon"
+            android:layout_height="@dimen/level_bottom_icon"
+            android:layout_margin="@dimen/default_margin"
+            android:src="@drawable/ic_store" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

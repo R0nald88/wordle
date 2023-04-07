@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".StoreActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/green"
+        android:elevation="5dp"
+        android:padding="@dimen/default_margin"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_margin"
+            android:src="@drawable/ic_exit"
+            android:id="@+id/btn_return"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_coin"
+            style="@style/content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/default_margin"
+            android:background="@drawable/bg_word"
+            android:backgroundTint="@color/white"
+            android:id="@+id/txt_coin"
+            android:padding="5dp"
+            android:gravity="center"
+            android:text="\t0"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/txt_coin"
+            android:layout_toEndOf="@id/btn_return"
+            android:layout_centerVertical="true"
+            style="@style/title"
+            android:text="Wordle Store"/>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_product"
+
+        tools:listitem="@layout/item_product"/>
+</LinearLayout>

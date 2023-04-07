@@ -1,9 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/layout_wordle"
     tools:context=".WordleGame">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:progress="60"
+            android:progressTint="@color/green"
+            android:backgroundTint="@color/white"
+            android:id="@+id/progress_step"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txt_step"
+            style="@style/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:text="Time/ Step Left: 00" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="275dp"
+            android:layout_margin="@dimen/default_margin"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/list_words"/>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:orientation="horizontal">
+
+            <TextView style="@style/key" android:id="@+id/key_Q" android:tag="key_Q" android:text="Q"/>
+            <TextView style="@style/key" android:id="@+id/key_W" android:tag="key_W" android:text="W"/>
+            <TextView style="@style/key" android:id="@+id/key_E" android:tag="key_E" android:text="E"/>
+            <TextView style="@style/key" android:id="@+id/key_R" android:tag="key_R" android:text="R"/>
+            <TextView style="@style/key" android:id="@+id/key_T" android:tag="key_T" android:text="T"/>
+            <TextView style="@style/key" android:id="@+id/key_Y" android:tag="key_Y" android:text="Y"/>
+            <TextView style="@style/key" android:id="@+id/key_U" android:tag="key_U" android:text="U"/>
+            <TextView style="@style/key" android:id="@+id/key_I" android:tag="key_I" android:text="I"/>
+            <TextView style="@style/key" android:id="@+id/key_O" android:tag="key_O" android:text="O"/>
+            <TextView style="@style/key" android:id="@+id/key_P" android:tag="key_P" android:text="P"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:orientation="horizontal">
+
+            <TextView style="@style/key" android:id="@+id/key_A" android:tag="key_A" android:text="A"/>
+            <TextView style="@style/key" android:id="@+id/key_S" android:tag="key_S" android:text="S"/>
+            <TextView style="@style/key" android:id="@+id/key_D" android:tag="key_D" android:text="D"/>
+            <TextView style="@style/key" android:id="@+id/key_F" android:tag="key_F" android:text="F"/>
+            <TextView style="@style/key" android:id="@+id/key_G" android:tag="key_G" android:text="G"/>
+            <TextView style="@style/key" android:id="@+id/key_H" android:tag="key_H" android:text="H"/>
+            <TextView style="@style/key" android:id="@+id/key_J" android:tag="key_J" android:text="J"/>
+            <TextView style="@style/key" android:id="@+id/key_K" android:tag="key_K" android:text="K"/>
+            <TextView style="@style/key" android:id="@+id/key_L" android:tag="key_L" android:text="L"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:orientation="horizontal">
+
+            <TextView style="@style/key" android:id="@+id/key_Z" android:tag="key_Z" android:text="Z"/>
+            <TextView style="@style/key" android:id="@+id/key_X" android:tag="key_X" android:text="X"/>
+            <TextView style="@style/key" android:id="@+id/key_C" android:tag="key_C" android:text="C"/>
+            <TextView style="@style/key" android:id="@+id/key_V" android:tag="key_V" android:text="V"/>
+            <TextView style="@style/key" android:id="@+id/key_B" android:tag="key_B" android:text="B"/>
+            <TextView style="@style/key" android:id="@+id/key_N" android:tag="key_N" android:text="N"/>
+            <TextView style="@style/key" android:id="@+id/key_M" android:tag="key_M" android:text="M"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:orientation="horizontal">
+
+            <TextView style="@style/key" android:layout_weight="1"
+                android:layout_width="0dp"
+                android:id="@+id/key_backspace" android:tag="key_backspace" android:text="Backspace"/>
+            <TextView style="@style/key" android:layout_width="0dp"
+                android:id="@+id/key_clear" android:layout_weight="1" android:tag="key_clear" android:text="Clear"/>
+            <TextView style="@style/key" android:layout_width="0dp"
+                android:id="@+id/key_enter" android:layout_weight="1" android:tag="key_enter" android:text="Enter"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin">
+            <ImageButton
+                style="@style/icon_primary"
+                android:id="@+id/btn_pause"
+                android:tooltipText="Pause"
+                android:layout_alignParentStart="true"
+                android:layout_margin="@dimen/default_margin"
+                android:src="@drawable/ic_pause"/>
+
+            <ImageButton
+                style="@style/icon_primary"
+                android:id="@+id/btn_info"
+                android:tooltipText="Info"
+                android:visibility="gone"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/default_margin"
+                android:src="@drawable/ic_info"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
