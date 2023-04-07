@@ -1,12 +1,12 @@
-package com.rcheung.wordle.Dialog;
+package com.example.grp_project.Dialog;
 
 import android.widget.Toast;
 
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
-import com.rcheung.wordle.Item.Token;
-import com.rcheung.wordle.R;
-import com.rcheung.wordle.WordleGame;
+import com.example.grp_project.Item.Token;
+import com.example.grp_project.R;
+import com.example.grp_project.WordleGame;
 
 public class LostDialog extends ResultDialog {
 
