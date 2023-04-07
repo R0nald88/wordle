@@ -1,4 +1,4 @@
-package com.rcheung.wordle.Item;
+package com.example.grp_project.Item;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
