@@ -1,4 +1,4 @@
-package com.rcheung.wordle.Dialog;
+package com.example.grp_project.Dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
