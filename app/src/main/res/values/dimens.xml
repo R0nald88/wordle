@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="smallContent">12sp</dimen>
+    <dimen name="content">16sp</dimen>
+    <dimen name="subtitle">20sp</dimen>
+    <dimen name="title">32sp</dimen>
+    <dimen name="default_margin">10dp</dimen>
+
+    <dimen name="subtitle_float">20</dimen>
+    <dimen name="level_bottom_icon">50dp</dimen>
+
+    <dimen name="small_dialog_width">320dp</dimen>
+    <dimen name="small_dialog_height">180dp</dimen>
+    <dimen name="normal_dialog_width">297dp</dimen>
+    <dimen name="normal_dialog_height">528dp</dimen>
+</resources>
