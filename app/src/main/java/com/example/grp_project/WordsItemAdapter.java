@@ -1,4 +1,4 @@
-package com.rcheung.wordle;
+package com.example.grp_project;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,8 +17,8 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rcheung.wordle.Item.Booster;
-import com.rcheung.wordle.Storage.Record;
+import com.example.grp_project.Item.Booster;
+import com.example.grp_project.Storage.Record;
 
 import java.util.ArrayList;
 import java.util.Arrays;
