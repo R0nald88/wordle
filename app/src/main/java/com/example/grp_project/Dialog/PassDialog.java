@@ -1,10 +1,10 @@
-package com.rcheung.wordle.Dialog;
+package com.example.grp_project.Dialog;
 
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
-import com.rcheung.wordle.R;
-import com.rcheung.wordle.Storage.Level;
-import com.rcheung.wordle.WordleGame;
+import com.example.grp_project.R;
+import com.example.grp_project.Storage.Level;
+import com.example.grp_project.WordleGame;
 
 public class PassDialog extends ResultDialog {
 	public PassDialog(WordleGame w) {
