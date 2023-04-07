@@ -1,4 +1,4 @@
-package com.rcheung.wordle;
+package com.example.grp_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,10 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.rcheung.wordle.Dialog.LevelDialog;
-import com.rcheung.wordle.Item.Booster;
-import com.rcheung.wordle.Item.Token;
-import com.rcheung.wordle.Storage.Level;
+import com.example.grp_project.Dialog.LevelDialog;
+import com.example.grp_project.Item.Booster;
+import com.example.grp_project.Item.Token;
+import com.example.grp_project.Storage.Level;
 
 public class LevelActivity extends AppCompatActivity {
 	private LevelPathView viewLevel;
