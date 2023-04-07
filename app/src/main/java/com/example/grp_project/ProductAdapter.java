@@ -1,4 +1,4 @@
-package com.rcheung.wordle;
+package com.example.grp_project;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +11,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rcheung.wordle.Item.Booster;
-import com.rcheung.wordle.Item.Product;
-import com.rcheung.wordle.Item.Token;
+import com.example.grp_project.Item.Booster;
+import com.example.grp_project.Item.Product;
+import com.example.grp_project.Item.Token;
 
 import java.util.Arrays;
 import java.util.List;
