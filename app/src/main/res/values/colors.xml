@@ -13,4 +13,12 @@
     <color name="wordle_grey">#787c7f</color>
     <color name="wordle_green">#6ca965</color>
     <color name="wordle_yellow">#c8b645</color>
+    
+    <color name="black">#FF000000</color>
+    <color name="grey">#787c7f</color>
+    <color name="red">#F27D72</color>
+    <color name="green">#6ca965</color>
+    <color name="yellow">#c8b645</color>
+    <color name="blue">#67B6F2</color>
+    <color name="white">#EAE4DA</color>
 </resources>
