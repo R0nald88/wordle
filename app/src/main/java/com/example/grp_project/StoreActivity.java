@@ -1,4 +1,4 @@
-package com.rcheung.wordle;
+package com.example.grp_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.rcheung.wordle.Item.Token;
+import com.example.grp_project.Item.Token;
 
 public class StoreActivity extends AppCompatActivity {
 	private ImageView btnReturn;
