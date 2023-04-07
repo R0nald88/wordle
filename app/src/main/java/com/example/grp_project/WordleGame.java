@@ -1,4 +1,4 @@
-package com.rcheung.wordle;
+package com.example.grp_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,9 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.rcheung.wordle.Dialog.PauseDialog;
-import com.rcheung.wordle.Item.Booster;
-import com.rcheung.wordle.Storage.Record;
+import com.example.grp_project.Dialog.PauseDialog;
+import com.example.grp_project.Item.Booster;
+import com.example.grp_project.Storage.Record;
 
 import java.util.Random;
 
