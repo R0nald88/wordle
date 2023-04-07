@@ -1,13 +1,13 @@
-package com.rcheung.wordle.Item;
+package com.example.grp_project.Item;
 
 import android.app.ProgressDialog;
 import android.os.CountDownTimer;
 import android.os.Handler;
 
-import com.rcheung.wordle.Dialog.LostDialog;
-import com.rcheung.wordle.Dialog.PassDialog;
-import com.rcheung.wordle.R;
-import com.rcheung.wordle.WordleGame;
+import com.example.grp_project.Dialog.LostDialog;
+import com.example.grp_project.Dialog.PassDialog;
+import com.example.grp_project.R;
+import com.example.grp_project.WordleGame;
 
 import java.util.Random;
 
