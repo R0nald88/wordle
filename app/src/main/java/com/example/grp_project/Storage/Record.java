@@ -1,12 +1,12 @@
-package com.rcheung.wordle.Storage;
+package com.example.grp_project.Storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
 
-import com.rcheung.wordle.Item.Booster;
-import com.rcheung.wordle.Item.GameMode;
+import com.example.grp_project.Item.Booster;
+import com.example.grp_project.Item.GameMode;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
