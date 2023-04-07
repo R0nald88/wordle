@@ -19,7 +19,12 @@
             android:name=".BackgroundMusic"
             android:enabled="true"
             android:exported="true"></service>
-
+        <activity
+            android:name=".StoreActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".LevelActivity"
+            android:exported="false"/>
         <activity
             android:name=".Settings"
             android:exported="false" />

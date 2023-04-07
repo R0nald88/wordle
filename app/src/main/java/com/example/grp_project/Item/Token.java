@@ -8,7 +8,7 @@ import com.example.grp_project.R;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.rcheung.wordle.Storage.Record.SHARED_PREF;
+import static com.example.grp_project.Storage.Record.SHARED_PREF;
 
 public enum Token implements Product {
 	COIN() {
