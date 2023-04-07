@@ -1,4 +1,4 @@
-package com.rcheung.wordle.Dialog;
+package com.example.grp_project.Dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -11,9 +11,9 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 
-import com.rcheung.wordle.MainActivity;
-import com.rcheung.wordle.R;
-import com.rcheung.wordle.WordleGame;
+import com.example.grp_project.MainActivity;
+import com.example.grp_project.R;
+import com.example.grp_project.WordleGame;
 
 public class PauseDialog {
 	private final Dialog pauseDialog;
