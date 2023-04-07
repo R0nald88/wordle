@@ -1,4 +1,4 @@
-package com.rcheung.wordle.Dialog;
+package com.example.grp_project.Dialog;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -13,12 +13,12 @@ import android.widget.TextView;
 
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
-import com.rcheung.wordle.Item.GameMode;
-import com.rcheung.wordle.Item.Product;
-import com.rcheung.wordle.Item.Token;
-import com.rcheung.wordle.LevelActivity;
-import com.rcheung.wordle.R;
-import com.rcheung.wordle.WordleGame;
+import com.example.grp_project.Item.GameMode;
+import com.example.grp_project.Item.Product;
+import com.example.grp_project.Item.Token;
+import com.example.grp_project.LevelActivity;
+import com.example.grp_project.R;
+import com.example.grp_project.WordleGame;
 
 import java.util.ArrayList;
 import java.util.List;
