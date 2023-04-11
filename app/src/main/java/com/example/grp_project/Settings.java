@@ -26,7 +26,7 @@ import androidx.appcompat.widget.SwitchCompat;
 
 public class Settings extends AppCompatActivity {
     SwitchCompat sw_night_mode;
-    Button btn_background,btn_reset;
+    Button btn_photo,btn_reset;
     SeekBar sb_volume;
     AudioManager audioManager;
     LinearLayout LL4;
@@ -37,7 +37,6 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         sharedPreferences=getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
-        getSupportActionBar().hide();
         LL4 =findViewById(R.id.LL4);
         set_background();
         InitiateSeekbars();
@@ -69,8 +68,8 @@ public class Settings extends AppCompatActivity {
         }
     }
     private void InitiateButtons() {
-        btn_background=findViewById(R.id.btn_background);
-        btn_background.setOnClickListener(new View.OnClickListener() {
+        btn_photo=findViewById(R.id.btn_background);
+        btn_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -79,7 +78,6 @@ public class Settings extends AppCompatActivity {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent, "Title"),1);
             }
-
 
         });
 
@@ -186,7 +184,9 @@ public class Settings extends AppCompatActivity {
     }
     public void set_background() {
         if (sharedPreferences.contains("CustomUriKey")) {
-            LL4.setBackground(Drawable.createFromPath(sharedPreferences.getString("CustomUriKey", "")));
+            Drawable d = Drawable.createFromPath(sharedPreferences.getString("CustomUriKey", ""));
+            d.setAlpha(200);
+            LL4.setBackground(d);
         }
         if (sharedPreferences.contains("nightmodeKey")){
             if(sharedPreferences.getBoolean("nightmodeKey",false)){

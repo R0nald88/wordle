@@ -31,7 +31,6 @@ public class LevelActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_level);
 		Booster.read(this);
 		Token.read(this);
-		sharedPreferences=getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
 		initView();
 
 		Log.d("letter", Level.getCurrentLevel(LevelActivity.this) + "");
@@ -66,10 +65,7 @@ public class LevelActivity extends AppCompatActivity {
 
 	private void initView() {
 		viewLevel = findViewById(R.id.view_level);
-		if (sharedPreferences.contains("CustomUriKey")){
-			viewLevel.setBackground(Drawable.createFromPath(sharedPreferences.getString("CustomUriKey","")));
 
-		}
 		btnDaily = findViewById(R.id.btn_daily);
 		btnShop = findViewById(R.id.btn_store);
 		btnPlay = findViewById(R.id.btn_play);

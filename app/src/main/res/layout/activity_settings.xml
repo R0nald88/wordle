@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="@string/settings"
             android:textAlignment="center"
-            android:textColor="@color/words"
+            style="@style/text_color"
             android:textSize="42sp" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/volume"
-                android:textColor="@color/words"
+                style="@style/text_color"
                 android:textSize="30sp" />
             <SeekBar
                 android:id="@+id/sb_volume"
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/night_mode"
-                android:textColor="@color/words"
+                style="@style/text_color"
                 android:textSize="30sp" />
 
             <androidx.appcompat.widget.SwitchCompat
@@ -63,16 +63,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/custom_background"
-                android:textColor="@color/words"
+                style="@style/text_color"
                 android:textSize="30sp" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_background"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:backgroundTint="@color/wordle_grey"
-                android:text="@string/click_here" />
+                android:text="@string/click_here"
+                android:textSize="16sp"/>
 
         </LinearLayout>
 
@@ -81,12 +82,13 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_reset"
                 android:backgroundTint="@color/wordle_grey"
                 android:layout_width="320sp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="50sp"
+                android:textSize="20sp"
                 android:text="@string/reset" />
         </LinearLayout>
 

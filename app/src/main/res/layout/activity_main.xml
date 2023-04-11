@@ -10,15 +10,14 @@
         android:id="@+id/LL1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background"
         android:orientation="vertical"
         tools:ignore="UselessParent">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/better_wordle"
+            style="@style/text_color"
             android:textAlignment="center"
-            android:textColor="@color/words"
             android:textSize="52sp" />
         <LinearLayout
             android:layout_width="320dp"
@@ -26,24 +25,24 @@
             android:layout_marginHorizontal="50dp"
             android:layout_marginVertical="100dp"
             android:orientation="vertical">
-            <Button
-                android:id="@+id/btn_start"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_main_start"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/start"
                 android:backgroundTint="@color/wordle_grey"
                 android:textSize="30sp"/>
-            <Button
-                android:id="@+id/btn_record"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_main_record"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/record"
                 android:backgroundTint="@color/wordle_grey"
                 android:textSize="30sp"/>
-            <Button
-                android:id="@+id/btn_settings"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_main_settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -51,8 +50,8 @@
                 android:backgroundTint="@color/wordle_grey"
                 android:textSize="30sp"
                 />
-            <Button
-                android:id="@+id/btn_quit"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_main_quit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -66,7 +65,7 @@
             android:text="@string/app_version"
             android:textAlignment="viewEnd"
             android:textSize="30sp"
-            android:textColor="@color/words"
+            style="@style/text_color"
             />
     </LinearLayout>
 </RelativeLayout>
