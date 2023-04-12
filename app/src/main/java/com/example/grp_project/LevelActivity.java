@@ -2,12 +2,15 @@ package com.example.grp_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.graphics.BlendMode;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +27,10 @@ public class LevelActivity extends AppCompatActivity {
 	private TextView txtCoin;
 
 	private SharedPreferences sharedPreferences;
+
+	private Intent bacgroud_music;
+
+	private ServiceConnection musicConnection;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +68,24 @@ public class LevelActivity extends AppCompatActivity {
 						Toast.LENGTH_LONG).show();
 		});
 		btnPlay.setOnClickListener(v -> new LevelDialog(LevelActivity.this, Level.getCurrentLevel(LevelActivity.this) - 1).show());
+		InitiateBackgroundMusic();
+	}
+	protected void onPause() {
+		super.onPause();
+		unbindService(musicConnection);
 	}
 
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		bindService(bacgroud_music, musicConnection,0);
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		bindService(bacgroud_music, musicConnection,0);
+	}
 	private void initView() {
 		viewLevel = findViewById(R.id.view_level);
 
@@ -72,5 +95,23 @@ public class LevelActivity extends AppCompatActivity {
 		btnRecord = findViewById(R.id.btn_record);
 		btnEndless = findViewById(R.id.btn_endless);
 		txtCoin = findViewById(R.id.txt_coin);
+	}
+
+	private void InitiateBackgroundMusic() {
+		bacgroud_music=new Intent(getApplicationContext(),BackgroundMusic.class);
+		musicConnection =new ServiceConnection() {
+			@Override
+			public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+
+			}
+
+			@Override
+			public void onServiceDisconnected(ComponentName componentName) {
+
+			}
+		};
+		startService(bacgroud_music);
+		bindService(bacgroud_music, musicConnection,0);
+
 	}
 }

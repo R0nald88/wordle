@@ -53,6 +53,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     //show exit dialoge for exit
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unbindService(musicConnection);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        bindService(bacgroud_music, musicConnection,0);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        bindService(bacgroud_music, musicConnection,0);
+    }
+
     private void putExitdialoge() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setMessage("Do you want to quit?");
@@ -61,7 +79,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                MainActivity.this.finish();
+                stopService(bacgroud_music);
+                MainActivity.this.finishAffinity();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -118,8 +137,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void InitiateBackgroundMusic() {
         bacgroud_music=new Intent(getApplicationContext(),BackgroundMusic.class);
-        startService(bacgroud_music);
+        musicConnection =new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
 
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName componentName) {
+
+            }
+        };
+        startService(bacgroud_music);
+        bindService(bacgroud_music, musicConnection,0);
 
     }
 

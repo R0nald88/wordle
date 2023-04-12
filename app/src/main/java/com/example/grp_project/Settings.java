@@ -1,15 +1,18 @@
 package com.example.grp_project;
 
 import android.annotation.SuppressLint;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.provider.MediaStore;
 import android.view.KeyEvent;
 import android.view.View;
@@ -31,7 +34,8 @@ public class Settings extends AppCompatActivity {
     AudioManager audioManager;
     LinearLayout LL4;
     SharedPreferences sharedPreferences;
-
+    ServiceConnection musicConnection;
+    Intent bacgroud_music;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +46,25 @@ public class Settings extends AppCompatActivity {
         InitiateSeekbars();
         InitiateNightModeSwitch();
         InitiateButtons();
+        InitiateBackgroundMusic();
 
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unbindService(musicConnection);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        bindService(bacgroud_music, musicConnection,0);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        bindService(bacgroud_music, musicConnection,0);
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -196,6 +218,24 @@ public class Settings extends AppCompatActivity {
 
             }
         }
+
+    }
+
+    private void InitiateBackgroundMusic() {
+        bacgroud_music=new Intent(getApplicationContext(),BackgroundMusic.class);
+        musicConnection =new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName componentName) {
+
+            }
+        };
+        startService(bacgroud_music);
+        bindService(bacgroud_music, musicConnection,0);
 
     }
 }

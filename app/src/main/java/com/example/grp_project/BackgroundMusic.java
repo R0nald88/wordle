@@ -5,9 +5,18 @@ import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import java.io.FileDescriptor;
 
 public class BackgroundMusic extends Service {
-    private MediaPlayer mediaPlayer;
+    MediaPlayer mediaPlayer;
+    IBinder iBinder;
 
     @Override
     public void onCreate() {
@@ -17,7 +26,18 @@ public class BackgroundMusic extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        mediaPlayer.start();
+        return iBinder;
+    }
+    @Override
+    public boolean onUnbind(Intent intent) {
+        mediaPlayer.pause();
+        return true;
+    }
+
+    @Override
+    public void onRebind(Intent intent) {
+        mediaPlayer.start();
     }
 
     @Override
