@@ -211,6 +211,7 @@ public class WordleGame extends AppCompatActivity {
 			return super.onKeyDown(keyCode,event);
 		}
 	}
+	//testing code
 	@Override
 	protected void onStart() {
 		super.onStart();
