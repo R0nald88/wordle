@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -52,13 +53,7 @@ public class WordleGame extends AppCompatActivity {
 		setContentView(R.layout.activity_wordle_game);
 		txtStep = findViewById(R.id.txt_step);
 		progressStep = findViewById(R.id.progress_step);
-		 sharedPreferences = getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
 
-		if (sharedPreferences.contains("CustomUriKey")){
-			RelativeLayout layout=findViewById(R.id.layout_wordle);
-			layout.setBackground(Drawable.createFromPath(sharedPreferences.getString("CustomUriKey","")));
-
-		}
 		initBackground();
 		onInit();
 		setKeyboard();
@@ -67,6 +62,7 @@ public class WordleGame extends AppCompatActivity {
 	}
 
 	private void initBackground() {
+		sharedPreferences = getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
 		if (sharedPreferences.contains("nightmodeKey")){
 			if(sharedPreferences.getBoolean("nightmodeKey",false)){
 				getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -201,6 +197,19 @@ public class WordleGame extends AppCompatActivity {
 		if (timer != null) timer.cancel();
 		unbindService(musicConnection);
 
+	}
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event){
+		if (keyCode == KeyEvent.KEYCODE_BACK){
+			if (passState == UNFINISHED) {
+				state.getRecord().writeCurrentRecord(this);
+				new PauseDialog(this, this::onRestart).show();
+				passState = PAUSED;
+			}
+			return true;
+		}else {
+			return super.onKeyDown(keyCode,event);
+		}
 	}
 	@Override
 	protected void onStart() {

@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AlertDialog;
@@ -118,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_quit.animate().rotationXBy(-360).setStartDelay(2500).setDuration(500);
     }
     private void InitiateSharedPreferences() {
-        sharedPreferences=getSharedPreferences(sharedPerferenceKey,MODE_PRIVATE);
+        sharedPreferences=getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
         if (sharedPreferences.contains("nightmodeKey")){
             if(sharedPreferences.getBoolean("nightmodeKey",false)){
                 getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -126,14 +125,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
             }
-
-        if (sharedPreferences.contains(customurikey)){
+        }
+        if (sharedPreferences.contains("CustomUriKey")){
             LinearLayout LL1 = findViewById(R.id.LL1);
             Drawable d = Drawable.createFromPath(sharedPreferences.getString("CustomUriKey", ""));
             d.setAlpha(200);
             LL1.setBackground(d);
         }
-    }
     }
     private void InitiateBackgroundMusic() {
         bacgroud_music=new Intent(getApplicationContext(),BackgroundMusic.class);

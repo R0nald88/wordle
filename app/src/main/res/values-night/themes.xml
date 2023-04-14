@@ -1,0 +1,241 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Grp_project" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style parent="Widget.AppCompat.TextView" name="title">
+
+        <item name="android:fontFamily">@font/title</item>
+
+        <item name="android:textSize">@dimen/title</item>
+
+        <item name="android:textColor">@color/txt_color</item>
+
+        <item name="android:textAlignment">center</item>
+
+        <item name="android:gravity">center</item>
+
+        <item name="android:textStyle">bold</item>
+
+        <item name="android:layout_gravity">center_horizontal</item>
+
+    </style>
+
+
+    <style parent="Widget.AppCompat.TextView" name="subtitle">
+
+        <item name="android:textColor">#fff</item>
+
+        <item name="android:fontFamily">@font/title</item>
+
+        <item name="android:textSize">@dimen/subtitle</item>
+
+        <item name="android:textAlignment">textStart</item>
+
+        <item name="android:gravity">center_vertical|start</item>
+
+        <item name="android:layout_gravity">start</item>
+
+    </style>
+
+
+    <style parent="Widget.AppCompat.TextView" name="content">
+
+        <item name="android:fontFamily">@font/content</item>
+
+        <item name="android:textSize">@dimen/content</item>
+
+        <item name="android:textColor">@color/txt_color</item>
+
+        <item name="android:textAlignment">textStart</item>
+
+    </style>
+
+
+    <style parent="Widget.AppCompat.TextView" name="subcontent">
+
+        <item name="android:fontFamily">@font/content</item>
+
+        <item name="android:textSize">@dimen/smallContent</item>
+
+        <item name="android:textColor">@color/txt_color</item>
+
+        <item name="android:textAlignment">textStart</item>
+
+    </style>
+
+
+    <style parent="subtitle" name="btn_primary">
+
+        <item name="android:textAllCaps">false</item>
+
+        <item name="android:backgroundTint">@color/btn_primary</item>
+
+        <item name="android:background">@drawable/btn_bg</item>
+
+        <item name="android:layout_height">40dp</item>
+
+        <item name="android:textAlignment">center</item>
+
+        <item name="android:gravity">center</item>
+
+        <item name="android:layout_gravity">center_horizontal</item>
+
+    </style>
+
+
+    <style parent="subtitle" name="btn_secondary">
+
+        <item name="android:textAllCaps">false</item>
+
+        <item name="backgroundTint">@color/btn_secondary</item>
+
+    </style>
+
+
+    <style parent="Widget.AppCompat.TextView" name="word">
+
+        <item name="android:layout_height">60dp</item>
+
+        <item name="android:background">@drawable/bg_word</item>
+
+        <item name="android:backgroundTint">@color/word_bg_color</item>
+
+        <item name="android:textColor">@color/txt_color</item>
+
+        <item name="android:fontFamily">@font/title</item>
+
+        <item name="android:textSize">@dimen/title</item>
+
+        <item name="android:textAlignment">center</item>
+
+        <item name="android:gravity">center</item>
+
+        <item name="android:padding">5dp</item>
+
+        <item name="android:layout_margin">5dp</item>
+
+        <item name="android:layout_weight">1</item>
+
+        <item name="android:layout_width">0dp</item>
+
+        <item name="android:layout_gravity">center_horizontal</item>
+
+    </style>
+
+
+    <style parent="Widget.AppCompat.TextView" name="key">
+
+        <item name="android:layout_height">wrap_content</item>
+
+        <item name="android:background">@drawable/bg_word</item>
+
+        <item name="android:backgroundTint">@color/word_bg_color</item>
+
+        <item name="android:textColor">@color/word_text_color</item>
+
+        <item name="android:fontFamily">@font/title</item>
+
+        <item name="android:textSize">@dimen/subtitle</item>
+
+        <item name="android:textAlignment">center</item>
+
+        <item name="android:gravity">center</item>
+
+        <item name="android:padding">10dp</item>
+
+        <item name="android:layout_margin">2.5dp</item>
+
+        <item name="android:layout_width">wrap_content</item>
+
+        <item name="android:layout_gravity">center_horizontal</item>
+
+    </style>
+
+
+    <style parent="Widget.AppCompat.TextView" name="icon">
+
+        <item name="android:layout_width">50dp</item>
+
+        <item name="android:layout_height">50dp</item>
+
+        <item name="android:backgroundTint">@color/white</item>
+
+        <item name="android:background">@drawable/bg_circle</item>
+
+        <item name="android:scaleType">fitCenter</item>
+
+        <item name="android:padding">10dp</item>
+
+        <item name="android:cropToPadding">true</item>
+
+    </style>
+
+
+    <style parent="icon" name="icon_primary">
+
+        <item name="backgroundTint">@color/btn_secondary</item>
+
+        <item name="android:tint">@color/txt_color</item>
+
+    </style>
+
+
+    <style parent="Widget.AppCompat.TextView" name="smallDialog">
+
+        <item name="android:background">@drawable/btn_bg</item>
+
+        <item name="android:backgroundTint">@color/green</item>
+
+        <item name="android:orientation">vertical</item>
+
+        <item name="android:layout_width">@dimen/small_dialog_width</item>
+
+        <item name="android:layout_height">@dimen/small_dialog_height</item>
+
+        <item name="android:elevation">1dp</item>
+
+        <item name="android:layout_gravity">center</item>
+
+        <item name="android:gravity">center</item>
+
+    </style>
+
+    <style parent="Widget.AppCompat.TextView" name="normalDialog">
+
+        <item name="android:background">@drawable/btn_bg</item>
+
+        <item name="android:backgroundTint">@color/green</item>
+
+        <item name="android:orientation">vertical</item>
+
+        <item name="android:layout_width">@dimen/normal_dialog_width</item>
+
+        <item name="android:layout_height">wrap_content</item>
+
+        <item name="android:padding">@dimen/default_margin</item>
+
+        <item name="android:elevation">1dp</item>
+
+        <item name="android:layout_gravity">center</item>
+
+        <item name="android:gravity">center</item>
+
+    </style>
+    <style name="text_color">
+        <item name="android:textColor">#fff</item>
+    </style>
+    <style name="background">
+        <item name="android:background">#000</item>
+    </style>
+</resources>
