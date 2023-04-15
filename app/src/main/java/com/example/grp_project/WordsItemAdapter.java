@@ -186,6 +186,12 @@ public class WordsItemAdapter {
 			}
 
 			String output = getGuess(correctWord);
+
+			if (!Arrays.asList(WordleGame.WORD_LIST).contains(output.toLowerCase())) {
+				Toast.makeText(itemView.getContext(), "Incorrect Spelling!", Toast.LENGTH_SHORT).show();
+				return null;
+			}
+
 			correctWord = correctWord.toUpperCase();
 			for (int a = 0; a < correctWord.length(); a++) {
 				if (correctWord.charAt(a) == output.charAt(a)) setCorrectPositionWord(words.get(a));

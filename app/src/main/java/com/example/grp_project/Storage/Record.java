@@ -70,20 +70,20 @@ public class Record {
 			level1 = 1;
 		}
 		level = level1;
-
 		correctInput = Arrays.asList(records[2].split(";"));
 
-		String[] g = records[3].split(";");
 		guessRecord = new ArrayList<>();
-		for (String a : g)
-			guessRecord.add(new ArrayList<>(Arrays.asList(a.split(","))));
+		if (!records[3].equals("") && !records[3].equals(";")) {
+			String[] g = records[3].split(";");
+			for (String a : g)
+				guessRecord.add(new ArrayList<>(Arrays.asList(a.split(","))));
+		}
 
 		try {
 			timeUsed = Integer.parseInt(records[5]);
 		} catch (NumberFormatException e) {
 			timeUsed = 0;
 		}
-
 	}
 
 	public static List<Record> read(Context context){
