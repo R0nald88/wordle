@@ -2,6 +2,7 @@ package com.example.grp_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -10,12 +11,22 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.example.grp_project.Storage.Record;
+
+import java.util.List;
 
 public class Records extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     Intent bacgroud_music;
     ServiceConnection musicConnection;
+    List<Record> record_list;
+    TextView tv_EndlessStep, tv_EndlessWord, tv_DailyStep, tv_DailyWord, tv_JourneyStep, tv_JourneyWord;
+    AppCompatButton btn_ViewWord;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +34,30 @@ public class Records extends AppCompatActivity {
         sharedPreferences=getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
         set_background();
         InitiateBackgroundMusic();
-
+        tvfindViewByid();
+        initializeButton();
     }
+
+    private void initializeButton() {
+        btn_ViewWord = findViewById(R.id.btn_ViewWord);
+        btn_ViewWord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Records.this, Dialog_word_record.class);
+                startActivity(i);
+            }
+        });
+    }
+
+    private void tvfindViewByid() {
+        tv_DailyStep = findViewById(R.id.tv_DailyStep);
+        tv_DailyWord = findViewById(R.id.tv_DailyWord);
+        tv_EndlessStep = findViewById(R.id.tv_EndlessStep);
+        tv_EndlessWord = findViewById(R.id.tv_EndlessWord);
+        tv_JourneyStep = findViewById(R.id.tv_JourneyStep);
+        tv_JourneyWord = findViewById(R.id.tv_JourneyWord);
+    }
+
     public void set_background() {
         LinearLayout LL3 = findViewById(R.id.LL3);
         if (sharedPreferences.contains("CustomUriKey")) {
