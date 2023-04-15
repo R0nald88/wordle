@@ -157,7 +157,7 @@
             android:text="Number of Level completed:" />
 
         <TextView
-            android:id="@+id/tv_JourneyWord"
+            android:id="@+id/tv_JourneyCompleted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -170,7 +170,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="View Solved Words"
+        android:text="View Words Record"
         android:textSize="20sp" />
 
 </LinearLayout>

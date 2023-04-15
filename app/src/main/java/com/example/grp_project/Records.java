@@ -24,7 +24,7 @@ public class Records extends AppCompatActivity {
     Intent bacgroud_music;
     ServiceConnection musicConnection;
     List<Record> record_list;
-    TextView tv_EndlessStep, tv_EndlessWord, tv_DailyStep, tv_DailyWord, tv_JourneyStep, tv_JourneyWord;
+    TextView tv_EndlessStep, tv_EndlessWord, tv_DailyStep, tv_DailyWord, tv_JourneyStep, tv_JourneyCompleted;
     AppCompatButton btn_ViewWord;
 
     @Override
@@ -32,10 +32,11 @@ public class Records extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_records);
         sharedPreferences=getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
+        initializeButton();
+        tvfindViewByid();
         set_background();
         InitiateBackgroundMusic();
-        tvfindViewByid();
-        initializeButton();
+        record_list = Record.read(getApplicationContext());
     }
 
     private void initializeButton() {
@@ -55,7 +56,7 @@ public class Records extends AppCompatActivity {
         tv_EndlessStep = findViewById(R.id.tv_EndlessStep);
         tv_EndlessWord = findViewById(R.id.tv_EndlessWord);
         tv_JourneyStep = findViewById(R.id.tv_JourneyStep);
-        tv_JourneyWord = findViewById(R.id.tv_JourneyWord);
+        tv_JourneyCompleted = findViewById(R.id.tv_JourneyCompleted);
     }
 
     public void set_background() {
@@ -75,7 +76,7 @@ public class Records extends AppCompatActivity {
         }
 
 
-        }
+    }
 
     private void InitiateBackgroundMusic() {
         bacgroud_music=new Intent(getApplicationContext(),BackgroundMusic.class);

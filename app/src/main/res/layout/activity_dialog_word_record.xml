@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Solved Words Record"
+        android:text="Words Record"
         android:textSize="34sp" />
 
     <ScrollView
@@ -21,15 +21,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <ListView
                 android:id="@+id/lv_WordRecord"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </ListView>
+                android:layout_height="match_parent" />
         </LinearLayout>
     </ScrollView>
 
