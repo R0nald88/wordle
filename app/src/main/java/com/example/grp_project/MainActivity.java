@@ -1,5 +1,6 @@
 package com.example.grp_project;
 
+import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,19 +19,20 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-   AppCompatButton btn_start,btn_settings,btn_record,btn_quit;
-    Intent next_activity,bacgroud_music;
+    AppCompatButton btn_start, btn_settings, btn_record, btn_quit;
+    Intent next_activity, bacgroud_music;
     SharedPreferences sharedPreferences;
 
     ServiceConnection musicConnection;
 
 
     //Key lists
-    public static final String sharedPerferenceKey="sharedPerferenceKey";
-    public static final String customurikey="CustomUriKey";
+    public static final String sharedPerferenceKey = "sharedPerferenceKey";
+    public static final String customurikey = "CustomUriKey";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +44,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event){
-        if (keyCode == KeyEvent.KEYCODE_BACK){
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
             putExitdialoge();
             return true;
-        }else {
-            return super.onKeyDown(keyCode,event);
+        } else {
+            return super.onKeyDown(keyCode, event);
         }
     }
     //show exit dialoge for exit
@@ -61,13 +63,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onRestart() {
         super.onRestart();
-        bindService(bacgroud_music, musicConnection,0);
+        bindService(bacgroud_music, musicConnection, 0);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        bindService(bacgroud_music, musicConnection,0);
+        bindService(bacgroud_music, musicConnection, 0);
     }
 
     private void putExitdialoge() {
@@ -91,9 +93,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
     //initiate the buttons
     private void InitiateButtons() {
-        btn_start=findViewById(R.id.btn_main_start);
+        btn_start = findViewById(R.id.btn_main_start);
         btn_start.setOnClickListener(this);
         btn_start.animate().rotationXBy(-360).setStartDelay(1000).setDuration(500).withStartAction(new Runnable() {
             @Override
@@ -101,41 +104,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ViewCompat.setBackgroundTintList(btn_start, ContextCompat.getColorStateList(MainActivity.this, R.color.wordle_green));
             }
         });
-        btn_record=findViewById(R.id.btn_main_record);
+        btn_record = findViewById(R.id.btn_main_record);
         btn_record.setOnClickListener(this);
         btn_record.animate().rotationXBy(-360).setStartDelay(1500).setDuration(500).withStartAction(new Runnable() {
             @Override
             public void run() {
-                ViewCompat.setBackgroundTintList(btn_record, ContextCompat.getColorStateList(MainActivity.this , R.color.wordle_yellow));
+                ViewCompat.setBackgroundTintList(btn_record, ContextCompat.getColorStateList(MainActivity.this, R.color.wordle_yellow));
             }
         });
-        btn_settings=findViewById(R.id.btn_main_settings);
+        btn_settings = findViewById(R.id.btn_main_settings);
         btn_settings.setOnClickListener(this);
         btn_settings.animate().rotationXBy(-360).setStartDelay(2000).setDuration(500);
-        btn_quit=findViewById(R.id.btn_main_quit);
+        btn_quit = findViewById(R.id.btn_main_quit);
         btn_quit.setOnClickListener(this);
         btn_quit.animate().rotationXBy(-360).setStartDelay(2500).setDuration(500);
     }
+
     private void InitiateSharedPreferences() {
-        sharedPreferences=getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
-        if (sharedPreferences.contains("nightmodeKey")){
-            if(sharedPreferences.getBoolean("nightmodeKey",false)){
+        sharedPreferences = getSharedPreferences("sharedPerferenceKey", MODE_PRIVATE);
+        if (sharedPreferences.contains("nightmodeKey")) {
+            if (sharedPreferences.getBoolean("nightmodeKey", false)) {
                 getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            }else {
+            } else {
                 getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
             }
         }
-        if (sharedPreferences.contains("CustomUriKey")){
+        if (sharedPreferences.contains("CustomUriKey")) {
             LinearLayout LL1 = findViewById(R.id.LL1);
             Drawable d = Drawable.createFromPath(sharedPreferences.getString("CustomUriKey", ""));
             d.setAlpha(200);
             LL1.setBackground(d);
         }
     }
+
     private void InitiateBackgroundMusic() {
-        bacgroud_music=new Intent(getApplicationContext(),BackgroundMusic.class);
-        musicConnection =new ServiceConnection() {
+        bacgroud_music = new Intent(getApplicationContext(), BackgroundMusic.class);
+        musicConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
 
@@ -147,31 +152,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         };
         startService(bacgroud_music);
-        bindService(bacgroud_music, musicConnection,0);
+        bindService(bacgroud_music, musicConnection, 0);
 
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_main_quit:
                 putExitdialoge();
                 break;
             case R.id.btn_main_start:
-                next_activity=new Intent(MainActivity.this,LevelActivity.class);
+                next_activity = new Intent(MainActivity.this, LevelActivity.class);
                 startActivity(next_activity);
                 break;
             case R.id.btn_main_record:
-                next_activity=new Intent(MainActivity.this, Records.class);
+                next_activity = new Intent(MainActivity.this, Records.class);
                 startActivity(next_activity);
                 break;
             case R.id.btn_main_settings:
-                next_activity=new Intent(MainActivity.this,Settings.class);
+                next_activity = new Intent(MainActivity.this, Settings.class);
                 startActivity(next_activity);
                 break;
         }
     }
+
 }
+
+
 
 
 
