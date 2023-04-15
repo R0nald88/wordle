@@ -33,7 +33,7 @@ import androidx.appcompat.widget.SwitchCompat;
 
 public class Settings extends AppCompatActivity {
     SwitchCompat sw_night_mode;
-    Button btn_photo,btn_reset;
+    Button btn_photo,btn_reset,btn_info;
     SeekBar sb_volume;
     AudioManager audioManager;
     LinearLayout LL4;
@@ -146,6 +146,8 @@ public class Settings extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+
+
     }
     private void InitiateSeekbars() {
         sb_volume=findViewById(R.id.sb_volume);

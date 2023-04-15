@@ -18,6 +18,9 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
+
+import com.example.grp_project.Storage.Record;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
 
@@ -159,7 +162,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_main_start:
                 next_activity=new Intent(MainActivity.this,LevelActivity.class);
-                startActivity(next_activity);
+                if (Record.readCurrentRecord(getApplicationContext())!=null){
+                    AlertDialog.Builder builder =new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("Reset Record?");
+                    builder.setMessage("Unsolved game found, do you want to reset your progress?");
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Record.clearCurrentRecord(getApplicationContext());
+                            startActivity(next_activity);
+                        }
+                    });
+
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            startActivity(next_activity);
+                        }
+                    });
+                    AlertDialog alertDialog=builder.create();
+                    alertDialog.show();
+
+                }
+                else{
+                    startActivity(next_activity);
+                }
                 break;
             case R.id.btn_main_record:
                 next_activity=new Intent(MainActivity.this, Records.class);

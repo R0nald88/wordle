@@ -77,6 +77,8 @@ public class Record {
 			String[] g = records[3].split(";");
 			for (String a : g)
 				guessRecord.add(new ArrayList<>(Arrays.asList(a.split(","))));
+		} else {
+			guessRecord.add(new ArrayList<>());
 		}
 
 		try {

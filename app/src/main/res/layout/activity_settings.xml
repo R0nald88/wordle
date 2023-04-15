@@ -69,28 +69,43 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_background"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
                 android:backgroundTint="@color/wordle_grey"
                 android:text="@string/click_here"
                 android:textSize="16sp"/>
 
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_reset"
+            android:layout_width="320sp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50sp"
+            android:backgroundTint="@color/wordle_grey"
+            android:text="@string/reset"
+            android:textSize="20sp" />
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_margin="30dp"
+            android:background="@color/wordle_grey">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_reset"
-                android:backgroundTint="@color/wordle_grey"
-                android:layout_width="320sp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="50sp"
-                android:textSize="20sp"
-                android:text="@string/reset" />
-        </LinearLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/text_color"
+                    android:text="@string/wordle_info"
+                    android:textSize="24dp"/>
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 </RelativeLayout>

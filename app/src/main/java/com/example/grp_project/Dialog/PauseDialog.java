@@ -53,6 +53,7 @@ public class PauseDialog {
 	private void onExit() {
 		wordle.getWordleState().getRecord().write(wordle);
 		wordle.startActivity(new Intent(wordle, MainActivity.class));
+		pauseDialog.dismiss();
 		wordle.finish();
 	}
 
@@ -63,6 +64,7 @@ public class PauseDialog {
 		i.putExtra(WordleGame.BOOSTER, 0);
 		i.putExtra(WordleGame.LEVEL, wordle.getWordleState().getRecord().getLevelInt());
 
+		pauseDialog.dismiss();
 		wordle.startActivity(i);
 		wordle.finish();
 	}

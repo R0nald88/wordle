@@ -12,4 +12,10 @@
     <string name="reset">Reset</string>
     <string name="volume">Volume:</string>
     <string name="music_volume">Music Volume:</string>
+    <string name="wordle_info">Wordle is a word guessing game based on Wordle that tasks the player with correctly selecting a random five-letter word. You only get six tries to guess the word.
+    \n\n> For a letter in the word and in a correct spot, the tile will turn green\n
+    \n> For a letter in the word but at the wrong spot, the tile will turn yellow\n
+    \n> For a letter not in the word at any spot, the tile will turn grey\n
+    \nIn Better Wordle, the are 3 game modes you can select From: 1) Daily 2) Adventure 3) Journey. Also, you can use items as a help!
+    \n\nPlease Enjoy!</string>
 </resources>
