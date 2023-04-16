@@ -16,20 +16,11 @@
         android:text="Words Record"
         android:textSize="34sp" />
 
-    <ScrollView
+    <ListView
+        android:id="@+id/lv_WordRecord"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ListView
-                android:id="@+id/lv_WordRecord"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-    </ScrollView>
+    </ListView>
 
 </LinearLayout>

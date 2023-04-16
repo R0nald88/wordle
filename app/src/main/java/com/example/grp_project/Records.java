@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.grp_project.Storage.Level;
 import com.example.grp_project.Storage.Record;
 
 import java.util.List;
