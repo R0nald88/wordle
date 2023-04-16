@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,6 +74,17 @@ public class LevelActivity extends AppCompatActivity {
 	protected void onPause() {
 		super.onPause();
 		unbindService(musicConnection);
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event){
+		if (keyCode == KeyEvent.KEYCODE_BACK){
+			Intent i = new Intent(LevelActivity.this,MainActivity.class);
+			startActivity(i);
+			return true;
+		}else {
+			return super.onKeyDown(keyCode,event);
+		}
 	}
 
 	@Override

@@ -45,14 +45,14 @@ public enum GameMode implements GameItem {
 			wordleGame.setTimer(null);
 			wordleGame.setPassState(WordleGame.UNFINISHED);
 			wordleGame.setMaxStep(WordleGame.DEFAULT_STEP);
-			wordleGame.setStepText("Step(s) Left: " + (wordleGame.getMaxStep() - wordleGame.getCurrentStep()));
+			wordleGame.setStepText("Step(s) Left: " + (wordleGame.getMaxStep() - wordleGame.getCurrentStep() - 1));
 			wordleGame.setProgress(1, 1);
 		}
 
 		@Override
 		public void onInput(WordleGame wordleGame, String w) {
 			wordleGame.getWordleState().getRecord().addGuessRecord(w);
-			wordleGame.setStepText("Step(s) Left: " + (wordleGame.getMaxStep() - wordleGame.getCurrentStep()));
+			wordleGame.setStepText("Step(s) Left: " + (wordleGame.getMaxStep() - wordleGame.getCurrentStep() - 1));
 			wordleGame.setProgress((wordleGame.getMaxStep() - wordleGame.getCurrentStep() - 1), wordleGame.getMaxStep());
 		}
 

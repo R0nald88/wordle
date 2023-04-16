@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -77,7 +78,16 @@ public class Records extends AppCompatActivity {
 
 
     }
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == android.view.KeyEvent.KEYCODE_BACK){
+            Intent i = new Intent(Records.this,MainActivity.class);
+            startActivity(i);
+            return true;
+        }else {
+            return super.onKeyDown(keyCode,event);
+        }
+    }
     private void InitiateBackgroundMusic() {
         bacgroud_music=new Intent(getApplicationContext(),BackgroundMusic.class);
         musicConnection =new ServiceConnection() {
