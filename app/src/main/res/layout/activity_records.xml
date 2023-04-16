@@ -21,6 +21,7 @@
         android:id="@+id/tv_endless"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="Game Mode: Endless"
         android:textSize="20sp" />
 
@@ -72,6 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Game Mode: Daily"
+        android:layout_marginTop="15dp"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -121,6 +123,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Game Mode: Journey"
+        android:layout_marginTop="15dp"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -169,7 +172,7 @@
         android:id="@+id/btn_ViewWord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:text="View Words Record"
         android:textSize="20sp" />
 

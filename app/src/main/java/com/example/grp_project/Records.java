@@ -59,6 +59,12 @@ public class Records extends AppCompatActivity {
         tv_EndlessWord = findViewById(R.id.tv_EndlessWord);
         tv_JourneyStep = findViewById(R.id.tv_JourneyStep);
         tv_JourneyCompleted = findViewById(R.id.tv_JourneyCompleted);
+        //tv_DailyStep.setText();
+        //tv_DailyWord.setText();
+        //tv_EndlessStep.setText();
+        //tv_EndlessWord.setText();
+        //tv_JourneyStep.setText();
+        //tv_JourneyCompleted.setText();
     }
 
     public void set_background() {

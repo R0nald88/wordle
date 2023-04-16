@@ -33,8 +33,6 @@ public class Dialog_word_record extends AppCompatActivity {
         lv_WordRecord = findViewById(R.id.lv_WordRecord);
         WordListAdapter adapter = new WordListAdapter(this, testArray);
         lv_WordRecord.setAdapter(adapter);
-
-
     }
 
 
