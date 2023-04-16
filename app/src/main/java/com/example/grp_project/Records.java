@@ -34,7 +34,7 @@ public class Records extends AppCompatActivity {
         setContentView(R.layout.activity_records);
         sharedPreferences=getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
         initializeButton();
-        tvfindViewByid();
+        initializeTextView();
         set_background();
         InitiateBackgroundMusic();
         record_list = Record.read(getApplicationContext());
@@ -51,7 +51,7 @@ public class Records extends AppCompatActivity {
         });
     }
 
-    private void tvfindViewByid() {
+    private void initializeTextView() {
         tv_DailyStep = findViewById(R.id.tv_DailyStep);
         tv_DailyWord = findViewById(R.id.tv_DailyWord);
         tv_EndlessStep = findViewById(R.id.tv_EndlessStep);
