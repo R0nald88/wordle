@@ -1,22 +1,29 @@
 package com.example.grp_project;
 
+import android.Manifest;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.PackageManagerCompat;
 import androidx.core.view.ViewCompat;
 
 import com.example.grp_project.Storage.Record;
@@ -30,19 +37,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     ServiceConnection musicConnection;
 
-
+    String[] permisssions={Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    int permissioncode =1;
     //Key lists
     public static final String sharedPerferenceKey="sharedPerferenceKey";
     public static final String customurikey="CustomUriKey";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED ||
+                ContextCompat.checkSelfPermission(MainActivity.this,Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_DENIED) {
+                requestPermissions(permisssions,permissioncode);
+                Toast.makeText(this, "Permission Required", Toast.LENGTH_SHORT).show();
+        }
 
-        InitiateButtons();
-        InitiateSharedPreferences();
-        InitiateBackgroundMusic();
     }
+
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event){
@@ -53,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return super.onKeyDown(keyCode,event);
         }
     }
-    //show exit dialoge for exit
 
     @Override
     protected void onPause() {
@@ -70,7 +82,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
-        bindService(bacgroud_music, musicConnection,0);
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(MainActivity.this,Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
+            InitiateButtons();
+            InitiateSharedPreferences();
+            InitiateBackgroundMusic();
+            bindService(bacgroud_music, musicConnection,0);
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode==permissioncode){
+            if (grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED && grantResults[1]==PackageManager.PERMISSION_GRANTED) {
+                Log.d("Permission","All permission granted");
+                startActivity(new Intent(MainActivity.this,MainActivity.class));}
+        }
     }
 
     private void putExitdialoge() {
@@ -153,7 +182,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bindService(bacgroud_music, musicConnection,0);
 
     }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -198,6 +226,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
 }
 
 
