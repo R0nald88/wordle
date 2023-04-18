@@ -25,20 +25,22 @@ public class Records extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     Intent bacgroud_music;
     ServiceConnection musicConnection;
-    List<Record> record_list;
-    TextView tv_EndlessStep, tv_EndlessWord, tv_DailyStep, tv_DailyWord, tv_JourneyStep, tv_JourneyCompleted;
+    TextView tv_EndlessStep, tv_EndlessCompleted, tv_DailyStep, tv_DailyCompleted, tv_JourneyStep, tv_JourneyCompleted;
     AppCompatButton btn_ViewWord;
+
+    List<Record> records;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_records);
         sharedPreferences=getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
+
+        records = Record.read(getApplicationContext());
         initializeButton();
         initializeTextView();
         set_background();
         InitiateBackgroundMusic();
-        record_list = Record.read(getApplicationContext());
     }
     @Override
     protected void onPause() {
@@ -65,17 +67,17 @@ public class Records extends AppCompatActivity {
 
     private void initializeTextView() {
         tv_DailyStep = findViewById(R.id.tv_DailyStep);
-        tv_DailyWord = findViewById(R.id.tv_DailyWord);
+        tv_DailyCompleted = findViewById(R.id.tv_DailyWord);
         tv_EndlessStep = findViewById(R.id.tv_EndlessStep);
-        tv_EndlessWord = findViewById(R.id.tv_EndlessWord);
+        tv_EndlessCompleted = findViewById(R.id.tv_EndlessCompleted);
         tv_JourneyStep = findViewById(R.id.tv_JourneyStep);
         tv_JourneyCompleted = findViewById(R.id.tv_JourneyCompleted);
         //tv_DailyStep.setText();
-        //tv_DailyWord.setText();
+        //tv_DailyCompleted.setText();
         //tv_EndlessStep.setText();
-        //tv_EndlessWord.setText();
+        //tv_EndlessCompleted.setText(null);
         //tv_JourneyStep.setText();
-        //tv_JourneyCompleted.setText();
+        tv_JourneyCompleted.setText(""+Level.getCurrentLevel(getApplicationContext()));
     }
 
     public void set_background() {
