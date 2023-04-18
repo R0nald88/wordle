@@ -40,6 +40,17 @@ public class Records extends AppCompatActivity {
         InitiateBackgroundMusic();
         record_list = Record.read(getApplicationContext());
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unbindService(musicConnection);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        bindService(bacgroud_music, musicConnection,0);
+    }
 
     private void initializeButton() {
         btn_ViewWord = findViewById(R.id.btn_ViewWord);
