@@ -35,9 +35,8 @@ public class Dialog_word_record extends AppCompatActivity {
     ListView lv_WordRecord;
     Intent bacgroud_music;
     ServiceConnection musicConnection;
-    String[] strings = {"test","testing"};
-    ArrayList<String> testString;
-    List<Record> testArray;
+    ArrayList<String> arraylist;
+    List<Record> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +44,18 @@ public class Dialog_word_record extends AppCompatActivity {
         setContentView(R.layout.activity_dialog_word_record);
         lv_WordRecord = findViewById(R.id.lv_WordRecord);
         set_background();
-
-        testString = new ArrayList<>(Arrays.asList(strings));
-
-        /*testArray = Record.read(getApplicationContext());
-        for (int i=0; i<testArray.size();i++) {
-            testString.add(testArray.get(i).getCorrectInput());
-        }*/
-        WordListAdapter adapter = new WordListAdapter(this, testString);
+        arraylist = new ArrayList<>();
+        list = Record.read(getApplicationContext());
+        for (int i=0; i<list.size();i++) {
+            arraylist.add(list.get(i).getCorrectInput());
+        }
+        WordListAdapter adapter = new WordListAdapter(this, arraylist);
         lv_WordRecord.setAdapter(adapter);
+
     }
+
+
+
 
     private void InitiateBackgroundMusic() {
         bacgroud_music =new Intent(getApplicationContext(),BackgroundMusic.class);
@@ -92,6 +93,13 @@ public class Dialog_word_record extends AppCompatActivity {
             InitiateBackgroundMusic();
             bindService(bacgroud_music, musicConnection,0);
         }
+        arraylist = new ArrayList<>();
+        list = Record.read(getApplicationContext());
+        for (int i=0; i<list.size();i++) {
+            arraylist.add(list.get(i).getCorrectInput());
+        }
+        WordListAdapter adapter = new WordListAdapter(this, arraylist);
+        lv_WordRecord.setAdapter(adapter);
 
     }
 

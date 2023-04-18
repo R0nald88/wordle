@@ -72,11 +72,18 @@ public class Records extends AppCompatActivity {
         tv_EndlessCompleted = findViewById(R.id.tv_EndlessCompleted);
         tv_JourneyStep = findViewById(R.id.tv_JourneyStep);
         tv_JourneyCompleted = findViewById(R.id.tv_JourneyCompleted);
-        //tv_DailyStep.setText();
-        //tv_DailyCompleted.setText();
-        //tv_EndlessStep.setText();
-        //tv_EndlessCompleted.setText(null);
-        //tv_JourneyStep.setText();
+
+        // ENDLESS: No. of words solved:
+        tv_EndlessCompleted.setText(null);
+        // ENDLESS: Average Steps Used for each game:
+        tv_EndlessStep.setText(null);
+        // DAILY: No. of Daily Challenge solved:
+        tv_DailyCompleted.setText(null);
+        // DAILY: Average Steps Used for each game:
+        tv_DailyStep.setText(null);
+        //LEVEL: Average Steps Used for each game:
+        tv_JourneyStep.setText(null);
+
         tv_JourneyCompleted.setText(""+Level.getCurrentLevel(getApplicationContext()));
     }
 
