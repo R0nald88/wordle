@@ -36,6 +36,7 @@ public class Dialog_word_record extends AppCompatActivity {
     Intent bacgroud_music;
     ServiceConnection musicConnection;
     ArrayList<String> arraylist;
+    Record currentRecord;
     List<Record> list;
 
     @Override
@@ -45,6 +46,7 @@ public class Dialog_word_record extends AppCompatActivity {
         lv_WordRecord = findViewById(R.id.lv_WordRecord);
         set_background();
         arraylist = new ArrayList<>();
+
         list = Record.read(getApplicationContext());
         for (int i=0; i<list.size();i++) {
             arraylist.add(list.get(i).getCorrectInput());

@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.grp_project.Item.GameMode;
 import com.example.grp_project.Storage.Level;
 import com.example.grp_project.Storage.Record;
 
@@ -66,6 +67,7 @@ public class Records extends AppCompatActivity {
     }
 
     private void initializeTextView() {
+
         tv_DailyStep = findViewById(R.id.tv_DailyStep);
         tv_DailyCompleted = findViewById(R.id.tv_DailyWord);
         tv_EndlessStep = findViewById(R.id.tv_EndlessStep);
@@ -73,18 +75,51 @@ public class Records extends AppCompatActivity {
         tv_JourneyStep = findViewById(R.id.tv_JourneyStep);
         tv_JourneyCompleted = findViewById(R.id.tv_JourneyCompleted);
 
+
+        /*
+        Record record = ;
+        int endlessSum = 0, endlessCount=0;
+        for (int i = 0; i<Record.read(getApplicationContext()).size(); i++){
+            if (record.getLevel().getGameMode() == GameMode.ENDLESS_MODE){
+                endlessSum += record.getEndlessRecordRound();
+                endlessCount++;
+            }
+        }
+        double endlessAvg = endlessSum / endlessCount;
+
         // ENDLESS: No. of words solved:
-        tv_EndlessCompleted.setText(null);
+        tv_EndlessCompleted.setText(""+ endlessCount);
         // ENDLESS: Average Steps Used for each game:
-        tv_EndlessStep.setText(null);
+        tv_EndlessStep.setText(""+ endlessAvg);
+
+        int dailySum = 0, dailyCount=0;
+        for (int i = 0; i<Record.read(getApplicationContext()).size(); i++){
+            if (record.getLevel().getGameMode() == GameMode.DAILY_MODE && record.isPassed()){
+                dailySum += record.getGuessRecord().size();
+                dailyCount++;
+            }
+        }
+        double dailyAvg = dailySum/ dailyCount;
+
         // DAILY: No. of Daily Challenge solved:
-        tv_DailyCompleted.setText(null);
+        tv_DailyCompleted.setText(""+ dailyCount);
         // DAILY: Average Steps Used for each game:
-        tv_DailyStep.setText(null);
+        tv_DailyStep.setText(""+ dailyAvg);
+
+        int levelSum = 0, levelCount=0;
+        for (int i = 0; i<Record.read(getApplicationContext()).size(); i++){
+            if (record.getLevel().getGameMode() == GameMode.DAILY_MODE){
+                levelSum += record.getGuessRecord().size();
+                levelCount++;
+            }
+        }
+        double levelAvg = levelSum/ levelCount;
+
         //LEVEL: Average Steps Used for each game:
-        tv_JourneyStep.setText(null);
+        tv_JourneyStep.setText(""+ levelAvg);
 
         tv_JourneyCompleted.setText(""+Level.getCurrentLevel(getApplicationContext()));
+        */
     }
 
     public void set_background() {

@@ -144,6 +144,8 @@ public class Record {
 		return guessRecord.get(guessRecord.size() - 1);
 	}
 
+	public int getEndlessRecordRound() { return guessRecord.size(); }
+
 	public String getCorrectInput() {
 		return correctInput.get(correctInput.size() - 1).toUpperCase();
 	}
