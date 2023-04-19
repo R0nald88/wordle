@@ -28,8 +28,7 @@ public class Records extends AppCompatActivity {
     ServiceConnection musicConnection;
     TextView tv_EndlessStep, tv_EndlessCompleted, tv_DailyStep, tv_DailyCompleted, tv_JourneyStep, tv_JourneyCompleted;
     AppCompatButton btn_ViewWord;
-
-    List<Record> records;
+    Record record;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,7 @@ public class Records extends AppCompatActivity {
         setContentView(R.layout.activity_records);
         sharedPreferences=getSharedPreferences("sharedPerferenceKey",MODE_PRIVATE);
 
-        records = Record.read(getApplicationContext());
+
         initializeButton();
         initializeTextView();
         set_background();
@@ -76,50 +75,57 @@ public class Records extends AppCompatActivity {
         tv_JourneyCompleted = findViewById(R.id.tv_JourneyCompleted);
 
 
-        /*
-        Record record = ;
+        List<Record> list = Record.read(getApplicationContext());
         int endlessSum = 0, endlessCount=0;
-        for (int i = 0; i<Record.read(getApplicationContext()).size(); i++){
-            if (record.getLevel().getGameMode() == GameMode.ENDLESS_MODE){
+        int dailySum = 0, dailyCount=0;
+        int levelSum = 0, levelCount=0;
+        for (int index = 0; index < list.size(); index++){
+            record = list.get(index);
+            if (record.getLevel().getGameMode() == GameMode.ENDLESS_MODE) {
                 endlessSum += record.getEndlessRecordRound();
                 endlessCount++;
             }
+            if (record.getLevel().getGameMode() == GameMode.DAILY_MODE && record.isPassed()) {
+                dailySum += record.getGuessRecord().size();
+                dailyCount++;
+            }
+            if (record.getLevel().getGameMode() == GameMode.DAILY_MODE){
+                levelSum += record.getGuessRecord().size();
+                levelCount++;
+            }
         }
-        double endlessAvg = endlessSum / endlessCount;
+
+        double endlessAvg = 0;
+        try {endlessAvg = endlessSum/endlessCount;}
+        catch (Exception e){
+            endlessAvg = 0;
+        }
 
         // ENDLESS: No. of words solved:
         tv_EndlessCompleted.setText(""+ endlessCount);
         // ENDLESS: Average Steps Used for each game:
         tv_EndlessStep.setText(""+ endlessAvg);
 
-        int dailySum = 0, dailyCount=0;
-        for (int i = 0; i<Record.read(getApplicationContext()).size(); i++){
-            if (record.getLevel().getGameMode() == GameMode.DAILY_MODE && record.isPassed()){
-                dailySum += record.getGuessRecord().size();
-                dailyCount++;
-            }
+        double dailyAvg = 0;
+        try {dailyAvg = dailySum/ dailyCount;}
+        catch (Exception e){
+            dailyAvg = 0;
         }
-        double dailyAvg = dailySum/ dailyCount;
 
         // DAILY: No. of Daily Challenge solved:
         tv_DailyCompleted.setText(""+ dailyCount);
         // DAILY: Average Steps Used for each game:
         tv_DailyStep.setText(""+ dailyAvg);
 
-        int levelSum = 0, levelCount=0;
-        for (int i = 0; i<Record.read(getApplicationContext()).size(); i++){
-            if (record.getLevel().getGameMode() == GameMode.DAILY_MODE){
-                levelSum += record.getGuessRecord().size();
-                levelCount++;
-            }
+        double levelAvg = 0;
+        try{levelAvg=levelSum/ levelCount;}
+        catch(Exception e){
+            levelAvg=0;
         }
-        double levelAvg = levelSum/ levelCount;
-
-        //LEVEL: Average Steps Used for each game:
-        tv_JourneyStep.setText(""+ levelAvg);
 
         tv_JourneyCompleted.setText(""+Level.getCurrentLevel(getApplicationContext()));
-        */
+        //LEVEL: Average Steps Used for each game:
+        tv_JourneyStep.setText(""+ levelAvg);
     }
 
     public void set_background() {
