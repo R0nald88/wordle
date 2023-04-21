@@ -46,7 +46,6 @@ public class Dialog_word_record extends AppCompatActivity {
         lv_WordRecord = findViewById(R.id.lv_WordRecord);
         set_background();
         arraylist = new ArrayList<>();
-
         list = Record.read(getApplicationContext());
         for (int i=0; i<list.size();i++) {
             arraylist.add(list.get(i).getCorrectInput());
@@ -90,11 +89,8 @@ public class Dialog_word_record extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(ContextCompat.checkSelfPermission(Dialog_word_record.this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(Dialog_word_record.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
             InitiateBackgroundMusic();
             bindService(bacgroud_music, musicConnection,0);
-        }
         arraylist = new ArrayList<>();
         list = Record.read(getApplicationContext());
         for (int i=0; i<list.size();i++) {
