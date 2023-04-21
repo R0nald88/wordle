@@ -52,6 +52,55 @@ public class Records extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         bindService(bacgroud_music, musicConnection,0);
+        List<Record> list = Record.read(getApplicationContext());
+        int endlessSum = 0, endlessCount=0;
+        int dailySum = 0, dailyCount=0;
+        int levelSum = 0, levelCount=0;
+        for (int index = 0; index < list.size(); index++){
+            record = list.get(index);
+            if (record.getLevel().getGameMode() == GameMode.ENDLESS_MODE) {
+                endlessCount += record.getEndlessRecordRound();
+                for (int a = 0; a<record.getEndlessGuessRecord().size(); a++ ){
+                    endlessSum += record.getEndlessGuessRecord().get(a).size();
+                }
+            }
+            if (record.getLevel().getGameMode() == GameMode.DAILY_MODE && record.isPassed()) {
+                dailySum += record.getGuessRecord().size();
+                dailyCount++;
+            }
+            if (record.getLevel().getGameMode() == GameMode.STEP_MODE || record.getLevel().getGameMode() == GameMode.TIME_MODE){
+                levelSum += record.getGuessRecord().size();
+                levelCount++;
+            }
+        }
+
+        double endlessAvg = 0;
+        try {endlessAvg = endlessSum/endlessCount;}
+        catch (Exception e){
+            endlessAvg = 0;
+        }
+
+        // ENDLESS: No. of words solved:
+        tv_EndlessCompleted.setText(""+ endlessCount);
+        // ENDLESS: Average Steps Used for each game:
+        tv_EndlessStep.setText(""+ endlessAvg);
+
+        double dailyAvg = 0;
+        try {dailyAvg = dailySum/ dailyCount;}
+        catch (Exception e){
+            dailyAvg = 0;
+        }
+
+        // DAILY: No. of Daily Challenge solved:
+        tv_DailyCompleted.setText(""+ dailyCount);
+        // DAILY: Average Steps Used for each game:
+        tv_DailyStep.setText(""+ dailyAvg);
+
+        double levelAvg = 0;
+        try{levelAvg=levelSum/ levelCount;}
+        catch(Exception e){
+            levelAvg=0;
+        }
     }
 
     private void initializeButton() {
@@ -82,14 +131,16 @@ public class Records extends AppCompatActivity {
         for (int index = 0; index < list.size(); index++){
             record = list.get(index);
             if (record.getLevel().getGameMode() == GameMode.ENDLESS_MODE) {
-                endlessSum += record.getEndlessRecordRound();
-                endlessCount++;
+                endlessCount += record.getEndlessRecordRound();
+                for (int a = 0; a<record.getEndlessGuessRecord().size(); a++ ){
+                    endlessSum += record.getEndlessGuessRecord().get(a).size();
+                }
             }
             if (record.getLevel().getGameMode() == GameMode.DAILY_MODE && record.isPassed()) {
                 dailySum += record.getGuessRecord().size();
                 dailyCount++;
             }
-            if (record.getLevel().getGameMode() == GameMode.DAILY_MODE){
+            if (record.getLevel().getGameMode() == GameMode.STEP_MODE || record.getLevel().getGameMode() == GameMode.TIME_MODE){
                 levelSum += record.getGuessRecord().size();
                 levelCount++;
             }
