@@ -31,7 +31,6 @@ import java.util.stream.Collectors;
 
 public class Dialog_word_record extends AppCompatActivity {
 
-    //private final Dialog dialog;
     ListView lv_WordRecord;
     Intent bacgroud_music;
     ServiceConnection musicConnection;
@@ -117,8 +116,5 @@ public class Dialog_word_record extends AppCompatActivity {
 
             }
         }}
-    /*public Dialog_word_record(Dialog dialog) {
-        this.dialog = dialog;
-    }*/
 }
 
