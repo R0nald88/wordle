@@ -49,6 +49,11 @@ public class LevelActivity extends AppCompatActivity {
 		viewLevel.setLevelClickListener(level -> new LevelDialog(LevelActivity.this, level).show());
 
 		//TODO start record act
+		btnRecord.setOnClickListener(v -> {
+			Intent i = new Intent(LevelActivity.this, Records.class);
+			startActivity(i);
+		});
+
 		btnShop.setOnClickListener(v -> {
 			StoreActivity.setListener(v1 -> {
 				if (txtCoin != null) txtCoin.setText(Token.COIN.getNumber() + "");
