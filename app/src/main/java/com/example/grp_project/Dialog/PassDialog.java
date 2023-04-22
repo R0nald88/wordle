@@ -1,15 +1,20 @@
 package com.example.grp_project.Dialog;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
+import com.example.grp_project.LevelActivity;
 import com.example.grp_project.R;
+import com.example.grp_project.Records;
 import com.example.grp_project.Storage.Level;
 import com.example.grp_project.WordleGame;
 
 public class PassDialog extends ResultDialog {
-	public PassDialog(WordleGame w) {
-		super(w);
-	}
+	public PassDialog(WordleGame w) {super(w);}
 
 	@Override
 	protected void setResultView() {
@@ -35,8 +40,12 @@ public class PassDialog extends ResultDialog {
 		// TODO add record act
 		btnRecord.setOnClickListener(v ->
 				layoutResult.animate().translationY(300).alpha(0).setDuration(1000)
-						.setInterpolator(new FastOutSlowInInterpolator()).withEndAction(
-						dialog::dismiss
+						.setInterpolator(new FastOutSlowInInterpolator()).withEndAction(() -> {
+							dialog.dismiss();
+							Intent i = new Intent(wordleGame, Records.class);
+							wordleGame.startActivity(i);
+							wordleGame.finish();
+						}
 				).start()
 		);
 	}

@@ -45,7 +45,7 @@ public enum GameMode implements GameItem {
 			wordleGame.setTimer(null);
 			wordleGame.setPassState(WordleGame.UNFINISHED);
 			wordleGame.setMaxStep(WordleGame.DEFAULT_STEP);
-			wordleGame.setStepText("Step(s) Left: " + (wordleGame.getMaxStep() - wordleGame.getCurrentStep() - 1));
+			wordleGame.setStepText("Step(s) Left: " + (wordleGame.getMaxStep() - wordleGame.getCurrentStep()));
 			wordleGame.setProgress(1, 1);
 		}
 

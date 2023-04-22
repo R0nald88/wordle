@@ -23,6 +23,7 @@ import com.example.grp_project.Item.Booster;
 import com.example.grp_project.Item.Product;
 import com.example.grp_project.LevelActivity;
 import com.example.grp_project.R;
+import com.example.grp_project.Records;
 import com.example.grp_project.Storage.Level;
 import com.example.grp_project.WordleGame;
 
@@ -92,11 +93,18 @@ public class LevelDialog {
 		});
 
 		//TODO start record act
-		btnRecord.setOnClickListener(v ->
-				layoutLevel.animate().translationY(300).alpha(0).setDuration(1000)
-				.setInterpolator(new FastOutSlowInInterpolator()).withEndAction(
-				dialog::dismiss
-		).start());
+		btnRecord.setOnClickListener(v -> {
+			layoutLevel.animate().translationY(300).alpha(0).setDuration(1000)
+					.setInterpolator(new FastOutSlowInInterpolator()).withEndAction(
+						() -> {
+							dialog.dismiss();
+							Intent i = new Intent(activity, Records.class);
+							activity.startActivity(i);
+							activity.finish();
+
+						}
+					).start();
+		});
 	}
 
 	private void setBoosterList() {
