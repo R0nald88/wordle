@@ -1,11 +1,11 @@
 # Grp_project
 
  > # code locations 
- >  1. java     -> java/com/example/grp_project
+ >  1. java     -> java/com/example/wordle
  >  2. xml      -> res
  >  3. manifest -> manifest
 
-## grp_project/Storage/Record class
+## wordle/Storage/Record class
 Class for Storing Game Attempt Record.
 ### Basic methods
 > static Record.read(c : Context) : List<Record> 
@@ -49,7 +49,7 @@ Class for Storing Game Attempt Record.
 > getEndlessGuessRecord(round : int) : List<String>
  -> Return a list of string that user guessed at particular round
 
-## grp_project/Storage/Level class
+## wordle/Storage/Level class
 Class stores finalized Level Info
 ### Methods
 > static Level.getLevel(level : int) : Level
@@ -67,7 +67,7 @@ Class stores finalized Level Info
 > grantReward() : void
  -> Change reward number and store in shared pref
  
-## grp_project/Item/GameItem interface
+## wordle/Item/GameItem interface
 Interface to store basic and finalized info of constant game item
 ### Subclass
 > Product interface -> Info and Number of purchaseable game item
@@ -83,7 +83,7 @@ Interface to store basic and finalized info of constant game item
  
 > getColorInt() : int -> Return color resources int of item (R.color. ...)
 
-## grp_project/Item/Product interface : GameItem
+## wordle/Item/Product interface : GameItem
 Interface to store Info and Number of purchaseable game item
 ### Subclass
 > Booster enum -> Booster for game level
