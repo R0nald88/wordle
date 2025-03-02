@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.grp_project'
+    namespace 'com.example.wordle'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.grp_project"
+        applicationId "com.example.wordle"
         minSdk 24
         targetSdk 33
         versionCode 1

@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:id="@+id/layout_wordle"
     style="@style/background"
+    android:background="@drawable/bg_daily"
     tools:context=".WordleGame">
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
         <ProgressBar
             android:layout_width="match_parent"
             android:progress="60"
-            android:progressTint="@color/green"
+            android:progressTint="@color/white"
             android:backgroundTint="@color/white"
             android:id="@+id/progress_step"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -33,7 +34,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="275dp"
+            android:layout_height="430dp"
             android:layout_margin="@dimen/default_margin"
             android:orientation="vertical">
             <LinearLayout
@@ -84,60 +85,95 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/default_margin"
+            android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
-            <TextView style="@style/key" android:id="@+id/key_Z" android:tag="key_Z" android:text="Z"/>
-            <TextView style="@style/key" android:id="@+id/key_X" android:tag="key_X" android:text="X"/>
-            <TextView style="@style/key" android:id="@+id/key_C" android:tag="key_C" android:text="C"/>
-            <TextView style="@style/key" android:id="@+id/key_V" android:tag="key_V" android:text="V"/>
-            <TextView style="@style/key" android:id="@+id/key_B" android:tag="key_B" android:text="B"/>
-            <TextView style="@style/key" android:id="@+id/key_N" android:tag="key_N" android:text="N"/>
-            <TextView style="@style/key" android:id="@+id/key_M" android:tag="key_M" android:text="M"/>
+            <ImageButton
+                android:id="@+id/key_clear"
+                style="@style/key"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_restart"
+                android:tag="key_clear"
+                android:backgroundTint="@color/grey"
+                android:text="Clear" />
 
+            <TextView
+                android:id="@+id/key_Z"
+                style="@style/key"
+                android:layout_height="match_parent"
+                android:tag="key_Z"
+                android:text="Z" />
+
+            <TextView
+                android:id="@+id/key_X"
+                style="@style/key"
+                android:tag="key_X"
+                android:text="X" />
+
+            <TextView
+                android:id="@+id/key_C"
+                style="@style/key"
+                android:tag="key_C"
+                android:text="C" />
+
+            <TextView
+                android:id="@+id/key_V"
+                style="@style/key"
+                android:tag="key_V"
+                android:text="V" />
+
+            <TextView
+                android:id="@+id/key_B"
+                style="@style/key"
+                android:tag="key_B"
+                android:text="B" />
+
+            <TextView
+                android:id="@+id/key_N"
+                style="@style/key"
+                android:tag="key_N"
+                android:text="N" />
+
+            <TextView
+                android:id="@+id/key_M"
+                style="@style/key"
+                android:tag="key_M"
+                android:text="M" />
+
+            <ImageButton
+                android:id="@+id/key_backspace"
+                style="@style/key"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_backspace"
+                android:backgroundTint="@color/grey"
+                android:tag="key_backspace" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:weightSum="3"
             android:layout_marginHorizontal="@dimen/default_margin"
             android:orientation="horizontal">
 
-            <TextView style="@style/key" android:layout_weight="1"
-                android:layout_width="0dp"
-                android:id="@+id/key_backspace" android:tag="key_backspace" android:text="Backspace"/>
-            <TextView style="@style/key" android:layout_width="0dp"
-                android:id="@+id/key_clear" android:layout_weight="1" android:tag="key_clear" android:text="Clear"/>
-            <TextView style="@style/key" android:layout_width="0dp"
-                android:id="@+id/key_enter" android:layout_weight="1" android:tag="key_enter" android:text="Enter"/>
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/default_margin">
             <ImageButton
                 style="@style/icon_primary"
                 android:id="@+id/btn_pause"
                 android:tooltipText="Pause"
-                android:layout_alignParentStart="true"
                 android:layout_margin="@dimen/default_margin"
                 android:src="@drawable/ic_pause"/>
+            <TextView style="@style/key" android:layout_width="match_parent"
+                android:id="@+id/key_enter" android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/grey"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                android:tag="key_enter" android:text="Enter"/>
 
-            <ImageButton
-                style="@style/icon_primary"
-                android:id="@+id/btn_info"
-                android:tooltipText="Info"
-                android:visibility="gone"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="@dimen/default_margin"
-                android:src="@drawable/ic_info"/>
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

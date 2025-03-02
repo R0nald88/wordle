@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/normalDialog"
     android:id="@+id/layout_level"
     android:orientation="vertical"
-    android:layout_gravity="center"
-    style="@style/normalDialog">
+    android:layout_gravity="center">
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,6 +18,7 @@
         android:layout_height="100dp"
         android:layout_margin="@dimen/default_margin"
         style="@style/icon"
+        android:padding="20dp"
         android:src="@drawable/ic_continue"
         android:id="@+id/img_game_mode"/>
 
@@ -88,43 +89,44 @@
 
     </LinearLayout>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/btn_primary"
+        android:text="Play"
+        android:layout_margin="@dimen/default_margin"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/grey"
+        android:textAlignment="center"
+        android:id="@+id/btn_next_level"/>
+
     <LinearLayout
         android:orientation="horizontal"
-        android:weightSum="3"
+        android:weightSum="2"
+        android:layout_marginHorizontal="@dimen/default_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             style="@style/btn_secondary"
-            android:drawableTop="@drawable/ic_continue"
-            android:text="Play"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:id="@+id/btn_next_level"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            style="@style/btn_secondary"
+            android:backgroundTint="@color/white"
             android:text="Exit"
             android:gravity="center"
             android:textAlignment="center"
-            android:drawableTop="@drawable/ic_exit"
             android:id="@+id/btn_exit"/>
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             style="@style/btn_secondary"
             android:text="Record"
             android:gravity="center"
             android:textAlignment="center"
-            android:drawableTop="@drawable/ic_record"
             android:id="@+id/btn_record"/>
 
     </LinearLayout>

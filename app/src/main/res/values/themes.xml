@@ -84,8 +84,6 @@
 
         <item name="android:background">@drawable/btn_bg</item>
 
-        <item name="android:layout_height">40dp</item>
-
         <item name="android:textAlignment">center</item>
 
         <item name="android:gravity">center</item>
@@ -204,7 +202,7 @@
 
         <item name="android:layout_height">@dimen/small_dialog_height</item>
 
-        <item name="android:elevation">1dp</item>
+        <item name="android:elevation">20dp</item>
 
         <item name="android:layout_gravity">center</item>
 
@@ -226,7 +224,7 @@
 
         <item name="android:padding">@dimen/default_margin</item>
 
-        <item name="android:elevation">1dp</item>
+        <item name="android:elevation">20dp</item>
 
         <item name="android:layout_gravity">center</item>
 
