@@ -12,11 +12,13 @@ Visit `wordle/app/src/main/README.md`
 
 ## Gallery
 
-| - | - |
-|Previous Map Screen![Previous Map Screen](gallery/prev_level_map_screen.jpg)|Previous Game Screen![Previous Game Screen](gallery/prev_game_screen.jpg)|
+| Description           | Image                                                     |
+|-----------------------|-----------------------------------------------------------|
+| Previous Map Screen   | ![Previous Map Screen](gallery/prev_level_map_screen.jpg) |
+| Previous Game Screen  | ![Previous Game Screen](gallery/prev_game_screen.jpg)     |
+| Previous Store Screen | ![Previous Store Screen](gallery/prev_store_screen.jpg)   |
+| Previous Level Dialog | ![Previous Level Dialog](gallery/prev_level_alert.jpg)    |
 
-Previous Store Screen
-![Previous Store Screen](gallery/prev_store_screen.jpg)
 
-Previous Level Dialog
-![Previous Level Dialog](gallery/prev_level_alert.jpg)
+
+
