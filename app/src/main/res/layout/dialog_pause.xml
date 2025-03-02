@@ -1,35 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/smallDialog">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/smallDialog"
+    android:orientation="vertical">
+
     <TextView
+        style="@style/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/title"
-        android:textColor="@color/white"
-        android:text="Game Paused"/>
+        android:text="Game Paused"
+        android:textColor="@color/white" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin">
+
         <ImageButton
-            style="@style/icon"
             android:id="@+id/btn_continue"
-            android:tooltipText="Continue"
-            android:src="@drawable/ic_continue"/>
+            style="@style/icon"
+            app:tint="@color/grey"
+            android:src="@drawable/ic_continue"
+            android:tooltipText="Continue" />
 
         <ImageButton
-            style="@style/icon"
-            android:layout_marginHorizontal="16dp"
             android:id="@+id/btn_exit"
-            android:tooltipText="Exit Game"
-            android:src="@drawable/ic_exit"/>
+            style="@style/icon"
+            app:tint="@color/grey"
+            android:layout_marginHorizontal="16dp"
+            android:src="@drawable/ic_exit"
+            android:tooltipText="Exit Game" />
 
         <ImageButton
-            style="@style/icon"
             android:id="@+id/btn_restart"
-            android:tooltipText="Restart"
-            android:src="@drawable/ic_restart"/>
+            style="@style/icon"
+            android:src="@drawable/ic_restart"
+            android:tooltipText="Restart" />
     </LinearLayout>
 </LinearLayout>

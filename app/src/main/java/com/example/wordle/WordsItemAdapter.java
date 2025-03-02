@@ -186,9 +186,13 @@ public class WordsItemAdapter {
 
 			correctWord = correctWord.toUpperCase();
 			for (int a = 0; a < correctWord.length(); a++) {
-				if (correctWord.charAt(a) == output.charAt(a)) setCorrectPositionWord(words.get(a));
-				else if (correctWord.contains(output.charAt(a) + "")) setCorrectWord(words.get(a));
-				else setWrongWord(words.get(a));
+				if (correctWord.charAt(a) == output.toUpperCase().charAt(a)) {
+					setCorrectPositionWord(words.get(a));
+				} else if (correctWord.contains(output.toUpperCase().charAt(a) + "")) {
+					setCorrectWord(words.get(a));
+				} else {
+					setWrongWord(words.get(a));
+				}
 			}
 
 			return output;

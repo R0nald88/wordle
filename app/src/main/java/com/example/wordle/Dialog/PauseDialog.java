@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 
+import com.example.wordle.LevelActivity;
 import com.example.wordle.MainActivity;
 import com.example.wordle.R;
 import com.example.wordle.WordleGame;
@@ -57,7 +58,7 @@ public class PauseDialog {
 	private void onRestart() {
 		wordle.getWordleState().getRecord().write(wordle);
 
-		Intent i = new Intent(wordle, MainActivity.class);
+		Intent i = new Intent(wordle, LevelActivity.class);
 		i.putExtra(WordleGame.BOOSTER, 0);
 		i.putExtra(WordleGame.LEVEL, wordle.getWordleState().getRecord().getLevelInt());
 

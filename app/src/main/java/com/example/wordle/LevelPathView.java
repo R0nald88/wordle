@@ -46,6 +46,8 @@ public class LevelPathView extends View {
 
 	protected short minLevelNo = 1, currentLevel = 1;
 	protected int viewHeight = 0;
+	protected long clickMillis = 0L;
+	public final static long MAX_CLICK_MILLIS = 100;
 
 	public LevelPathView(Context context) {
 		super(context);
@@ -210,6 +212,7 @@ public class LevelPathView extends View {
 				isClicked = true;
 				actionDownY = event.getY();
 				actionDownX = event.getX();
+				clickMillis = System.currentTimeMillis();
 				return true;
 			case MotionEvent.ACTION_UP:
 				if (!isClicked || levelClickListener == null) {
@@ -251,7 +254,8 @@ public class LevelPathView extends View {
 				y = Math.min(y, getMapHeight() - viewHeight);
 
 				scrollTo(0, (int) y);
-				isClicked = false;
+
+				isClicked = System.currentTimeMillis() - clickMillis <= MAX_CLICK_MILLIS;
 				return true;
 		}
 		return false;

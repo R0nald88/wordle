@@ -20,6 +20,7 @@
         android:id="@+id/btn_search"
         style="@style/icon"
         android:layout_width="50dp"
+        android:tooltipText="Search Word"
         android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
