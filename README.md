@@ -6,6 +6,10 @@ journey mode, boosters and words definition checking.
 All UI resources are self-made. 
 Currently, only only a couple of level is designed that is forever looping in journey mode.
 
+## Technology Used
+
+Android Studio
+
 ## Documentation
 
 Visit `wordle/app/src/main/README.md`
