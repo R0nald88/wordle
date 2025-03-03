@@ -50,7 +50,7 @@ public class PauseDialog {
 
 	private void onExit() {
 		wordle.getWordleState().getRecord().write(wordle);
-		wordle.startActivity(new Intent(wordle, MainActivity.class));
+		wordle.startActivity(new Intent(wordle, LevelActivity.class));
 		pauseDialog.dismiss();
 		wordle.finish();
 	}
