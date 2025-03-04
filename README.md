@@ -11,9 +11,13 @@ Currently, only only a couple of level is designed that is forever looping in jo
 - Platform: Android Studio
 - Programming Language: Java
 
-## Documentation
+## Demo
 
-Visit [here](wordle/app/src/main/README.md)
+<img src="./demo.gif" width="35%" />
+
+## App Installation
+
+Download [wordle](wordle.apk) and install on Android device with version above 7.0 (Android 13 recommended). 
 
 ## Gallery
 
