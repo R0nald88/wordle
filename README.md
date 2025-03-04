@@ -13,7 +13,7 @@ Currently, only only a couple of level is designed that is forever looping in jo
 
 # Demo
 
-![](demo.gif)
+![](demo.gif | width=100)
 
 ## App Installation
 
