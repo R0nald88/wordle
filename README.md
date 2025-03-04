@@ -11,11 +11,9 @@ Currently, only only a couple of level is designed that is forever looping in jo
 - Platform: Android Studio
 - Programming Language: Java
 
-# Demo
+## Demo
 
-<video width="90" height="160" autoplay>
-  <source src="demo.mp4" type="video/mp4">
-</video>
+![Demo Video](https://github.com/user-attachments/assets/764e47d4-834e-488d-bcab-bd2e76424161)
 
 ## App Installation
 
