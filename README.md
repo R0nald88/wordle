@@ -13,7 +13,7 @@ Currently, only only a couple of level is designed that is forever looping in jo
 
 ## App Installation
 
-Install [wordle](wordle.apk) with Android version above 7.0 (Android 13 recommended). 
+Download [wordle](wordle.apk) and install on Android device with version above 7.0 (Android 13 recommended). 
 
 ## Gallery
 
