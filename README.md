@@ -12,7 +12,8 @@ Currently, only only a couple of level is designed that is forever looping in jo
 - Programming Language: Java
 
 # Demo
-[./demo.mp4]
+
+!()[demo.mp4]
 
 ## App Installation
 
