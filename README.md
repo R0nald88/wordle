@@ -8,11 +8,12 @@ Currently, only only a couple of level is designed that is forever looping in jo
 
 ## Technology Used
 
-Android Studio
+- Platform: Android Studio
+- Programming Language: Java
 
 ## Documentation
 
-Visit `wordle/app/src/main/README.md`
+Visit [here](wordle/app/src/main/README.md)
 
 ## Gallery
 
