@@ -13,7 +13,7 @@ Currently, only only a couple of level is designed that is forever looping in jo
 
 # Demo
 
-<video width="50%" autoplay>
+<video width="90" height="160" autoplay>
   <source src="demo.mp4" type="video/mp4">
 </video>
 
