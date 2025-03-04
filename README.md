@@ -13,7 +13,7 @@ Currently, only only a couple of level is designed that is forever looping in jo
 
 ## Demo
 
-![Demo Video](https://github.com/user-attachments/assets/764e47d4-834e-488d-bcab-bd2e76424161)
+<img src="./demo.gif" width="50%" />
 
 ## App Installation
 
