@@ -13,7 +13,7 @@ Currently, only only a couple of level is designed that is forever looping in jo
 
 ## Demo
 
-<img src="./demo.gif" width="50%" />
+<img src="./demo.gif" width="35%" />
 
 ## App Installation
 
