@@ -13,7 +13,10 @@ Currently, only only a couple of level is designed that is forever looping in jo
 
 # Demo
 
-<img src="./demo.gif" width="50%" />
+<video width="50%" autoplay>
+  <source src="demo.mp4" type="video/mp4"/>
+  Your browser doesn't support MP4
+</video>
 
 ## App Installation
 
